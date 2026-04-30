@@ -3,6 +3,7 @@ from ..player import Player
 from app.utils import minimax
 from app.services.managers.resource_manager import resources
 import random
+from app.utils import canonical_with_map
 
 
 class MinimaxPlayer(Player):
@@ -31,21 +32,24 @@ class MinimaxPlayer(Player):
         if empty_spaces == 9:
             return random.choice(MinimaxPlayer._optimal_openings)
 
-        board_key = tuple(board)
-        if board_key in MinimaxPlayer._move_cache:
-            return MinimaxPlayer._move_cache[board_key]
-        else:
-            move = await self._compute_move(board, empty_spaces)
-            MinimaxPlayer._move_cache[board_key] = move
-            return move
+        canonical_board, mapping = canonical_with_map(board)
+        board_key = canonical_board
 
-    async def _compute_move(self, board: list[str | None], empty_spaces: int) -> int:
+        if board_key in MinimaxPlayer._move_cache:
+            canon_move = MinimaxPlayer._move_cache[board_key]
+        else:
+            canon_move = await self._compute_move(canonical_board, empty_spaces)
+            MinimaxPlayer._move_cache[board_key] = canon_move
+
+        return mapping[canon_move]
+
+    async def _compute_move(self, board: str, empty_spaces: int) -> int:
         if empty_spaces < 5:
             return minimax(board)
         else:
             return await self._compute_move_in_process(board)
 
-    async def _compute_move_in_process(self, board: list[str | None]) -> int:
+    async def _compute_move_in_process(self, board: str) -> int:
         async with resources.get_semaphore_strict():
             loop = asyncio.get_running_loop()
             return await loop.run_in_executor(resources.process_pool, minimax, board)

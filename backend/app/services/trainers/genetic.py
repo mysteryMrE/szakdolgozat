@@ -153,23 +153,24 @@ def play_game(
                 logger.debug(f"      NN ({as_player}) plays at position {move}")
         else:
             if opponent_strategy == "minimax":
-                if board.count("_") == 9:
-                    return random.choice(
+                if canonical_board.count("_") == 9:
+                    move = random.choice(
                         [0, 2, 4, 6, 8]
                     )  # to match the real minimax player
-                minimax_dict = get_minimax_dict()
-                if canonical_board not in minimax_dict:
+                else:
+                    minimax_dict = get_minimax_dict()
+                    if canonical_board not in minimax_dict:
+                        if debug:
+                            logger.debug(
+                                f"      ERROR: Board not in minimax_move_dict: {canonical_board}"
+                            )
+                        raise KeyError(f"Board not in minimax dict: {canonical_board}")
+                    move = minimax_dict[canonical_board]
+
                     if debug:
                         logger.debug(
-                            f"      ERROR: Board not in minimax_move_dict: {canonical_board}"
+                            f"      Minimax ({opponent_mark}) plays at position {move}"
                         )
-                    raise KeyError(f"Board not in minimax dict: {canonical_board}")
-                move = minimax_dict[canonical_board]
-
-                if debug:
-                    logger.debug(
-                        f"      Minimax ({opponent_mark}) plays at position {move}"
-                    )
             else:
                 moves = [i for i, v in enumerate(canonical_board) if v == "_"]
                 move = random.choice(moves)

@@ -5,7 +5,6 @@ import random
 from .board_normalizer import board_to_str
 from .board_normalizer import BoardInput
 
-
 SYM_MAPS = [
     (0, 1, 2, 3, 4, 5, 6, 7, 8),  # identity
     (6, 3, 0, 7, 4, 1, 8, 5, 2),  # rotate 90
@@ -150,18 +149,6 @@ def generate_ongoing_canonical_positions() -> list[str]:
     """
     canon_set, _ = generate_canonical_positions()
     ongoing_set = {s for s in canon_set if (winner_of(s) is None and "_" in s)}
-    # x = {s for s in ongoing_set if s.count("X") == s.count("O")}
-    # o = len({s for s in ongoing_set if s.count("X") == s.count("O") + 1})
-    # print(
-    #     f"Ongoing positions: total={len(ongoing_set)}, X to move={len(x)}, O to move={o}"
-    # )
-    # mymap = {}
-    # for board in x:
-    #     count = board.count("X")
-    #     mymap[count] = mymap.get(count, 0) + 1
-    # print("Ongoing positions by moves made (X to move):")
-    # for moves_made, count in sorted(mymap.items()):
-    #     print(f"  Moves made: {moves_made}, Positions: {count}")
     return list(ongoing_set)
 
 

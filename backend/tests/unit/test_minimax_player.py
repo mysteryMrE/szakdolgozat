@@ -1,5 +1,6 @@
 import pytest
 from app.game.players.minimax import MinimaxPlayer
+from app.utils import canonical_with_map
 
 
 @pytest.fixture(autouse=True)
@@ -48,8 +49,11 @@ class TestMinimaxPlayer:
     async def test_minimax_cache(self):
         player = MinimaxPlayer()
         board: list[str | None] = [None, "O", None, "X", None, None, None, None, None]
+        canonical_board, mapping = canonical_with_map(board)
         move = await player.get_move(board)
-        assert MinimaxPlayer._move_cache.get(tuple(board)) == move
+        canon_move = MinimaxPlayer._move_cache.get(canonical_board)
+        assert canon_move is not None
+        assert move == mapping[canon_move]
 
     async def test_minimax_start_move(self):
         player = MinimaxPlayer()
@@ -61,10 +65,12 @@ class TestMinimaxPlayer:
     async def test_minimax_move_cache_reuses_previous_result(self, monkeypatch):
         player = MinimaxPlayer()
         board: list[str | None] = [None, "X", None, None, None, None, None, None, None]
+        canonical_board, _ = canonical_with_map(board)
         calls = {"count": 0}
 
         async def fake_compute_move(current_board, empty_spaces):
             calls["count"] += 1
+            assert current_board == canonical_board
             return 4
 
         monkeypatch.setattr(player, "_compute_move", fake_compute_move)
@@ -75,4 +81,5 @@ class TestMinimaxPlayer:
         assert first_move == 4
         assert second_move == 4
         assert calls["count"] == 1
-        assert tuple(board) in MinimaxPlayer._move_cache
+        assert canonical_board in MinimaxPlayer._move_cache
+        assert MinimaxPlayer._move_cache[canonical_board] == 4

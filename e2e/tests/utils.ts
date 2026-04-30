@@ -133,10 +133,11 @@ export async function playDraw(page: Page) {
   await playerAndMinimax(page, [1, 1], [2, 2]);
   await playerAndMinimax(page, [1, 2], [1, 3]);
   await playerAndMinimax(page, [3, 1], [2, 1]);
-  await playerAndMinimax(page, [2, 3], [3, 2]);
 
-  await page.getByRole("button", { name: cellRegex(3, 3, "üres") }).click();
+  await playerAndMinimax(page, [2, 3], [3, 3]);
+
+  await page.getByRole("button", { name: cellRegex(3, 2, "üres") }).click();
   await expect(
-    page.getByRole("button", { name: cellRegex(3, 3, "X") }),
+    page.getByRole("button", { name: cellRegex(3, 2, "X") }),
   ).toBeVisible();
 }

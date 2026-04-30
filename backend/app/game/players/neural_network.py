@@ -100,7 +100,7 @@ class NeuralNetworkPlayer(Player):
 
 
 # for a 200 node network avg=0.5170ms (min=0.4888, max=0.8926)
-# IMPORTANT: for larger networks consider adding to_thread or process pool
+# IMPORTANT: if networks significantly increase to_thread or process pool should be considered, like with minimax
 
 # development test code
 # async def test_nn_player():
