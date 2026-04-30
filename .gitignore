@@ -1,0 +1,7 @@
+**/.env
+**/.env.local
+setup-docker.ps1
+example/
+latex/
+docs/
+*.heapsnapshot

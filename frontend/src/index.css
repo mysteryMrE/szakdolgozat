@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-criticical: 22.5rem; /* 360px */
+  --breakpoint-sm: 30rem;    /* 480px */
+  --breakpoint-sm-plus: 36rem; /* 576px */
+  --breakpoint-md: 48rem;    /* 768px */
+  --breakpoint-normal: 64rem; /* 1024px */
+  --breakpoint-lg: 70rem;    /* 1120px */
+  --breakpoint-xl: 80rem;    /* 1280px */
+}
+
+@custom-variant short (@media (max-height: 400px));
+
+@layer base{
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-semibold mb-3;
+  }
+  h3 {
+    @apply text-lg font-semibold mb-2;
+  }
+  h4 {
+    @apply text-base font-semibold mb-1;
+  }
+  body {
+    @apply bg-slate-300;
+  }
+  td {
+    @apply pl-2;
+  }
+}
+
+@utility btn {
+  @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium text-white cursor-pointer;
+}
+@utility content-container {
+  @apply min-h-screen bg-gray-900 text-white p-3 md:p-4 normal:p-6 rounded-2xl w-95/100 sm:w-9/10 normal:w-5/6 mx-auto;
+}
+@utility content-box {
+  @apply max-w-4xl mx-auto bg-gray-800 rounded-lg p-3 md:p-4 normal:p-6 text-stone-50 text-left;
+}
+@utility input-ring {
+  @apply w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-blue-500
+}
+@utility note {
+  @apply text-sm text-gray-500;
+}
+@utility target-display-button {
+  @apply w-15 h-15 rounded-lg cursor-pointer items-center justify-center flex text-white text-lg font-bold;
+}
+
+@utility tooltip {
+  @apply absolute top-full left-0 mt-2 text-sm text-gray-400 z-10 w-full bg-gray-900 rounded-lg px-2 py-1 transition-opacity ease-in-out duration-200 pointer-events-none;
+}
+
+/* AI assisted css classes */
+
+.glowing-text {
+  @apply text-white font-bold text-xl;
+  text-shadow: 0 0 5px #00d3f2, 0 0 10px #00d3f2, 0 0 20px #00d3f2, 0 0 40px #00d3f2;
+}
+.glowing-text-light {
+  @apply font-bold text-3xl text-white;
+  text-shadow: 0 0 2px #fff, 0 0 8px #ff00ff, 0 0 15px #ff00ff, 0 0 30px rgba(255, 0, 255, 0.4);
+}
+
+
+@keyframes dash-crawl {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -12; 
+  }
+}
+
+.crawling-line {
+  stroke-dasharray: 6, 6; 
+  animation: dash-crawl 0.5s linear infinite; 
+}
+
+@keyframes dash-crawl-back {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 12; 
+  }
+}
+
+.crawling-line-back {
+  stroke-dasharray: 6, 6; 
+  animation: dash-crawl-back 0.5s linear infinite; 
+}
+
+
+@keyframes robot-pulse {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.4));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 50px rgba(34, 211, 238, 0.9));
+  }
+}
+
+@keyframes robot-pulse-light {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-robot-light {
+  animation: robot-pulse-light 4s ease-in-out infinite;
+}
+
+.animate-robot {
+  animation: robot-pulse 4s ease-in-out infinite;
+}
+
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.8;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 5s linear infinite;
+}
