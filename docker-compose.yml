@@ -2,7 +2,6 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: szakdoga-postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
@@ -12,8 +11,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "${POSTGRES_HOST_PORT:-5433}:${POSTGRES_PORT:-5432}"
-    networks:
-      - szakdoga-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 10s
@@ -25,7 +22,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: szakdoga-backend
     depends_on:
       postgres:
         condition: service_healthy
@@ -64,8 +60,6 @@ services:
       RATE_LIMIT_ENABLED: ${RATE_LIMIT_ENABLED:-true}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
-    networks:
-      - szakdoga-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
@@ -80,24 +74,17 @@ services:
       args:
         VITE_BACKEND_URL: ${VITE_BACKEND_URL:-http://localhost:8000}
         VITE_BACKEND_WS: ${VITE_BACKEND_WS:-ws://localhost:8000}
-    container_name: szakdoga-frontend
     depends_on:
       backend:
         condition: service_healthy
     ports:
       - "${FRONTEND_PORT:-5173}:3000"
-    networks:
-      - szakdoga-network
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 10s
-
-networks:
-  szakdoga-network:
-    driver: bridge
 
 volumes:
   postgres_data:
