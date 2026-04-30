@@ -82,6 +82,7 @@ const MenaceContent = () => {
     Record<"X" | "O", Record<"X" | "O" | "draw", number>>
   >({ X: { X: 0, O: 0, draw: 0 }, O: { X: 0, O: 0, draw: 0 } });
   const [wheelResetToken, setWheelResetToken] = useState(0);
+  const isPlayingRef = useRef(false);
 
   const generateStringBoard = () => {
     const results: string[] = [];
@@ -222,15 +223,23 @@ const MenaceContent = () => {
     drawReward: number,
     losePunishment: number,
   ) => {
-    for (let i = 0; i < numGames; i++) {
-      playOneGame("X", drawReward, winReward, losePunishment);
-      playOneGame("O", drawReward, winReward, losePunishment);
+    if (isPlayingRef.current) return;
+    isPlayingRef.current = true;
+    try {
+      for (let i = 0; i < numGames; i++) {
+        playOneGame("X", drawReward, winReward, losePunishment);
+        playOneGame("O", drawReward, winReward, losePunishment);
+      }
+      setProbabilities(generateProbabilities());
+      setChoice(null);
+      console.log("Training completed over", numGames * 2, "games.");
+      console.log("Current boards state:", boards.current);
+      setGamesTrained((prev) => prev + numGames);
+    } finally {
+      setTimeout(() => {
+        isPlayingRef.current = false;
+      }, 250);
     }
-    setProbabilities(generateProbabilities());
-    setChoice(null);
-    console.log("Training completed over", numGames * 2, "games.");
-    console.log("Current boards state:", boards.current);
-    setGamesTrained((prev) => prev + numGames);
   };
 
   const play = (
@@ -391,9 +400,9 @@ const MenaceContent = () => {
             Törlés
           </button>
           <button
-            className={`btn ${isSpinning || gamesTrained >= 1_000_000 ? "btn-disabled opacity-50" : ""}`}
+            className={`btn ${isSpinning || gamesTrained >= 500_000 ? "btn-disabled opacity-50" : ""}`}
             onClick={() => playAndTrain(10000, 3, 1, 1)}
-            disabled={isSpinning || gamesTrained >= 1_000_000}
+            disabled={isSpinning || gamesTrained >= 500_000}
           >
             Tanítás
           </button>
