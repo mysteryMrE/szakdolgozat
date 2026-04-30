@@ -89,7 +89,9 @@ class FastAPIApp:
                 exploration=50, exploitation=100
             )  # suggested 5000, 10000
             await DefaultPlayerMaker.create_backprop_nn(epochs=50)  # suggested 5000
-            await DefaultPlayerMaker.create_genetic_nn()  # suggested 180, 200
+            await DefaultPlayerMaker.create_genetic_nn(
+                population_size=30
+            )  # suggested 180, 200
         else:
             logger.info("[STARTUP] Skipping default player training")
 
