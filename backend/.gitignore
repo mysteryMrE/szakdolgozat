@@ -1,25 +1,7 @@
-.venv/
-tvenv/
-clean_venv/
-.clean/
+venv/
 **/__pycache__/
 **/*.pyc
-app/database/data/
-/genetic_jsons/
-requirements_clean.txt
-testreq.txt
-requirements-test.txt
-clean.txt
 
-.test_venv/
-.test_env/
 htmlcov/
 .pytest_cache/
 .coverage
-.coveragerc
-bench2.py
-_bench.py
-
-logs/
-
-docker-entrypoint.sh
