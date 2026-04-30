@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import SpinningWheel from "../../SpinningWheel";
+import { chooseWeighted } from "../../../utils";
 
 import type { SimpleBoardState } from "../../../types";
 import SimpleBoard from "../../SimpleBoard";
@@ -7,6 +8,34 @@ import MenaceTrainSimulation from "./MenaceTrainSimulation";
 
 const tableHeadStyle = "px-1 py-1 md:px-4 md:py-2 text-sm text-slate-100";
 const tableRowStyle = "px-1 py-1 md:px-4 md:py-2 text-sm text-slate-200";
+
+const symMaps = [
+  [0, 1, 2, 3, 4, 5, 6, 7, 8],
+  [6, 3, 0, 7, 4, 1, 8, 5, 2],
+  [8, 7, 6, 5, 4, 3, 2, 1, 0],
+  [2, 5, 8, 1, 4, 7, 0, 3, 6],
+  [2, 1, 0, 5, 4, 3, 8, 7, 6],
+  [6, 7, 8, 3, 4, 5, 0, 1, 2],
+  [0, 3, 6, 1, 4, 7, 2, 5, 8],
+  [8, 5, 2, 7, 4, 1, 6, 3, 0],
+];
+
+const canonicalWithMap = (
+  board: string,
+): { canonBoard: string; mapping: number[] } => {
+  let bestMapping: number[] = symMaps[0]!;
+  let bestBoard = bestMapping.map((index) => board[index]).join("");
+
+  for (const mapping of symMaps) {
+    const candi = mapping.map((index) => board[index]).join("");
+    if (candi < bestBoard) {
+      bestBoard = candi;
+      bestMapping = mapping;
+    }
+  }
+
+  return { canonBoard: bestBoard, mapping: bestMapping };
+};
 
 const checkWinner = (
   board: SimpleBoardState,
@@ -54,7 +83,7 @@ const MenaceContent = () => {
   >({ X: { X: 0, O: 0, draw: 0 }, O: { X: 0, O: 0, draw: 0 } });
   const [wheelResetToken, setWheelResetToken] = useState(0);
 
-  const generateBoard = () => {
+  const generateStringBoard = () => {
     const results: string[] = [];
     board.forEach((cell) => {
       if (cell === null) {
@@ -70,73 +99,71 @@ const MenaceContent = () => {
     return results.join("");
   };
 
+  const ensureMatchbox = (stringBoard: string) => {
+    const { canonBoard } = canonicalWithMap(stringBoard);
+    if (!(canonBoard in boards.current)) {
+      if (validBoard(canonBoard) && canonBoard.includes("_")) {
+        const empties = [...canonBoard]
+          .map((value, index) => (value === "_" ? index : -1))
+          .filter((index) => index !== -1);
+        const matchbox: Record<number, number> = {};
+        empties.forEach((indexValue) => {
+          matchbox[indexValue] = 3;
+        });
+        boards.current[canonBoard] = matchbox;
+      }
+    }
+    return canonicalWithMap(stringBoard);
+  };
+
   const generateProbabilities = () => {
-    const stringBoard = generateBoard();
-    if (stringBoard in boards.current) {
-      const numDict = boards.current[stringBoard]!;
-      return Object.values(numDict);
+    const stringBoard = generateStringBoard();
+    const { canonBoard, mapping } = ensureMatchbox(stringBoard);
+    if (canonBoard in boards.current) {
+      const matchbox = boards.current[canonBoard]!;
+      const inverseMapping = Object.fromEntries(
+        mapping.map((realIndex, canonicalIndex) => [realIndex, canonicalIndex]),
+      );
+      return board
+        .map((cell, realIndex) => {
+          if (cell === null) {
+            const canonIndex = inverseMapping[realIndex]!;
+            const beadCount = matchbox[canonIndex] ?? 1;
+            return beadCount;
+          }
+          return null;
+        })
+        .filter((value): value is number => value !== null);
     } else {
-      console.error("No existing board, using uniform probabilities.");
+      console.error("No existing board, impossible code path.");
       return board.map((cell) => (cell === null ? 1 : 0));
     }
   };
 
   useEffect(() => {
-    const stringBoard = generateBoard();
-    if (
-      stringBoard.includes("_") &&
-      !(stringBoard in boards.current) &&
-      validBoard(stringBoard) &&
-      checkWinner(board) === null
-    ) {
-      console.log("New board encountered:", stringBoard);
-      const empties = stringBoard
-        .split("")
-        .map((value, index) => (value === "_" ? index : -1))
-        .filter((i) => i !== -1);
-      const numDict: Record<number, number> = {};
-      empties.forEach((index) => {
-        numDict[index] = 3;
-      });
-      boards.current[stringBoard] = numDict;
-    }
-    setProbabilities(
-      boards.current[stringBoard]
-        ? Object.values(boards.current[stringBoard]!)
-        : [],
-    );
+    setProbabilities(generateProbabilities());
   }, [board]);
 
-  const pickMenaceMove = (stringBoard: string): number => {
-    if (!(stringBoard in boards.current)) {
-      if (validBoard(stringBoard) && stringBoard.includes("_")) {
-        const empties = stringBoard
-          .split("")
-          .map((value, index) => (value === "_" ? index : -1))
-          .filter((index) => index !== -1);
-        const numDict: Record<number, number> = {};
-        empties.forEach((i) => {
-          numDict[i] = 3;
-        });
-        boards.current[stringBoard] = numDict;
-      }
-    }
+  const pickMenaceMove = (
+    stringBoard: string,
+  ): { board: string; move: number; realMove: number } => {
+    const { canonBoard, mapping } = ensureMatchbox(stringBoard);
     if (!validBoard(stringBoard)) {
       console.error("Invalid board in pickMenaceMove:", stringBoard);
     }
 
-    const beads = boards.current[stringBoard]!;
-    const moves = Object.entries(beads);
-    const total = moves.reduce((sum, [, count]) => sum + count, 0);
-    let r = Math.floor(Math.random() * total);
-    for (const [pos, beads] of moves) {
-      const move_id = Number(pos);
-      if (r < beads) return move_id;
-      r -= beads;
-    }
-    // fallback
-    console.error("Fallback in pickMenaceMove, should not happen.");
-    return Number(moves![0]![0]);
+    const matchbox = boards.current[canonBoard]!;
+    const entries = Object.entries(matchbox);
+    const move = chooseWeighted(
+      entries.map(([pos]) => Number(pos)),
+      entries.map(([, beadCount]) => beadCount),
+    );
+
+    return {
+      board: canonBoard,
+      move,
+      realMove: mapping[move]!,
+    };
   };
 
   const playOneGame = (
@@ -169,9 +196,13 @@ const MenaceContent = () => {
 
       if (current === menacePlaysAs) {
         const stringBoard = board.map((c) => c ?? "_").join("");
-        const move = pickMenaceMove(stringBoard);
-        history.push({ board: stringBoard, move });
-        board[move] = menacePlaysAs;
+        const {
+          board: canonicalBoard,
+          move,
+          realMove,
+        } = pickMenaceMove(stringBoard);
+        history.push({ board: canonicalBoard, move });
+        board[realMove] = menacePlaysAs;
       } else {
         const empties = board
           .map((cell, i) => (cell === null ? i : -1))
@@ -244,7 +275,7 @@ const MenaceContent = () => {
     setWheelResetToken((prev) => prev + 1);
   }, [board, probabilities]);
 
-  const currentBoardKey = generateBoard();
+  const currentBoardKey = generateStringBoard();
   const boardWinner = checkWinner(board);
   const hasEmptyCell = board.includes(null);
   const isBoardValid = validBoard(currentBoardKey);

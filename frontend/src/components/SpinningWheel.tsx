@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { chooseWeighted } from "../utils";
 
 /**
  * AI assisted component.
@@ -211,20 +212,13 @@ const SpinningWheel = ({
     isSpinning(true);
     setChoiceInside(null);
 
-    const rand = Math.random();
-    let sum = 0;
-    let winnerIndex =
+    const winnerIndex =
       forcedTarget !== undefined
         ? values.indexOf(forcedTarget)
-        : normalizedProbs.length - 1;
-    for (let i = 0; i < normalizedProbs.length; i++) {
-      sum += normalizedProbs[i]!;
-      if (rand <= sum) {
-        winnerIndex =
-          forcedTarget !== undefined ? values.indexOf(forcedTarget) : i;
-        break;
-      }
-    }
+        : chooseWeighted(
+            values.map((_, index) => index),
+            probabilities,
+          );
     console.debug(
       "Chosen winner index:",
       winnerIndex,
