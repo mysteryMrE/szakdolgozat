@@ -153,6 +153,10 @@ def play_game(
                 logger.debug(f"      NN ({as_player}) plays at position {move}")
         else:
             if opponent_strategy == "minimax":
+                if board.count("_") == 9:
+                    return random.choice(
+                        [0, 2, 4, 6, 8]
+                    )  # to match the real minimax player
                 minimax_dict = get_minimax_dict()
                 if canonical_board not in minimax_dict:
                     if debug:
@@ -161,6 +165,7 @@ def play_game(
                         )
                     raise KeyError(f"Board not in minimax dict: {canonical_board}")
                 move = minimax_dict[canonical_board]
+
                 if debug:
                     logger.debug(
                         f"      Minimax ({opponent_mark}) plays at position {move}"
@@ -575,8 +580,8 @@ if __name__ == "__main__":
         json.dump(
             {
                 "layers": best_nn.layers,
-                "weights": [w for w in best_nn.weights],
-                "biases": [b for b in best_nn.biases],
+                "weights": [w.tolist() for w in best_nn.weights],
+                "biases": [b.tolist() for b in best_nn.biases],
                 "training_fitness": meta["fitness"],
                 "vs_minimax": {
                     "x_wins": win_x,

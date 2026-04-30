@@ -131,21 +131,21 @@ class BackpropTrainer:
         # Backpropagate through hidden layers
         current_error = pre_activation_output_layer_error
 
-        for layer_idx in range(len(nn.weights) - 2, -1, -1):
+        for layer_id in range(len(nn.weights) - 2, -1, -1):
             # Propagate error to previous layer - convert to numpy array and transpose
             # using chain rule
-            weights_matrix = np.array(nn.weights[layer_idx + 1], dtype=np.float64)
+            weights_matrix = np.array(nn.weights[layer_id + 1], dtype=np.float64)
             current_error = np.dot(weights_matrix.T, current_error)
             # Apply derivative of ReLU activation still part of the chain rule
-            relu_derivative = (z_values[layer_idx] > 0).astype(np.float64)
+            relu_derivative = (z_values[layer_id] > 0).astype(np.float64)
             current_error = current_error * relu_derivative
             # now current_error is the error with respect to preactivation Z values of this layer
 
             # Calculate gradients for this layer (ensure float64)
-            gradients_w[layer_idx] = np.outer(
-                current_error, activations[layer_idx]
+            gradients_w[layer_id] = np.outer(
+                current_error, activations[layer_id]
             ).astype(np.float64)
-            gradients_b[layer_idx] = current_error.astype(np.float64)
+            gradients_b[layer_id] = current_error.astype(np.float64)
 
         return gradients_w, gradients_b
 
