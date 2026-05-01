@@ -325,7 +325,7 @@ const GameControls = ({
             min={0.02}
             max={10}
             step={0.01}
-            label="Lépés késleltetés (mp)"
+            label="Lépéskésleltetés (mp)"
             title="A lépések közötti szünet hossza másodpercben (0.02-10)."
           />
 
@@ -335,7 +335,7 @@ const GameControls = ({
             min={0.02}
             max={10}
             step={0.01}
-            label="Kör késleltetés (mp)"
+            label="Körkésleltetés (mp)"
             title="A körök közötti szünet hossza másodpercben (0.02-10)."
           />
         </div>

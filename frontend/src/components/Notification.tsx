@@ -38,7 +38,7 @@ const messageMap: Record<string, string> = {
   "Job already finished": "A tanítás már befejeződött.",
   "not your turn": "Nem te következel!",
   "Network not found": "Neuronháló nem található",
-  "Internal server error": "Szerver hiba",
+  "Internal server error": "Szerverhiba",
   "Missing token for non-guest user":
     "Hiányzó token nem vendég WebSocket-kapcsolatához.",
   "Missing refresh token": "Hiányzó token.",

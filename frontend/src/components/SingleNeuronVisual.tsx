@@ -388,7 +388,7 @@ const SingleNeuronVisual = ({
     <div className="mt-5">
       <p>
         Itt egy egyszerű neuron látható. Két bemenete, két súlya, torzítása és
-        egységugrás-függvénye.
+        egységugrás-függvénye van.
       </p>
 
       <div className="bg-slate-900 rounded-lg shadow-lg mt-4 p-1 md:p-2 mb-3">

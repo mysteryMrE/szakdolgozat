@@ -30,7 +30,7 @@ const BackpropBackward = () => {
           </li>
           <li>
             <span className="font-semibold">
-              A segítő kritika - A gradiens:
+              A segítő kritika - a gradiens:
             </span>{" "}
             Ennek a lépésnek a célja, hogy megkapjuk a "segítő kritikát", ami
             megmondja, melyik "hozzávalón" (súlyon és torzításon) és hogyan kell
@@ -47,7 +47,7 @@ const BackpropBackward = () => {
           </li>
           <li>
             <span className="font-semibold">
-              A recept módosítása - Gradiens Ereszkedés:
+              A recept módosítása - gradiens ereszkedés:
             </span>{" "}
             Mivel a célunk a hiba csökkentése, a hálózat pont a gradienssel
             ellentétes irányba módosítja a paramétereit (súlyok és torzítások).

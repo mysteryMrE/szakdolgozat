@@ -43,10 +43,10 @@ const GeneticLoop = () => {
         <div>
           <h4>Iteráció</h4>
           <p>
-            A populáció újra kiértékelésre kerül, és a ciklus kezdődik elölről,
-            amíg a megállási feltételek teljesülnek. Ez lehet egy adott
-            generációszám elérése, a kívánt egyed megjelenése, vagy a fitnesz
-            érték stagnálása.
+            A populációt újra kiértékeljük, és a ciklus kezdődik elölről, amíg a
+            megállási feltételek teljesülnek. Ez lehet egy adott generációszám
+            elérése, a kívánt egyed megjelenése, vagy a fitnesz érték
+            stagnálása.
           </p>
         </div>
       </div>

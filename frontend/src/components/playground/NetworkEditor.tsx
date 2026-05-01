@@ -577,7 +577,7 @@ const NetworkEditor = ({ networkDoc, saveNetwork }: NetworkEditorProps) => {
       <div className="p-6 bg-gray-800 rounded-lg flex flex-col gap-5">
         <h1 className="text-2xl font-bold mb-2 text-white">Szerkesztő</h1>
         <span className="block text-sm text-gray-400">
-          Az első, és az utolsó réteg neuronszáma nem módosítható. A bemeneti
+          Az első és az utolsó réteg neuronszáma nem módosítható. A bemeneti
           réteg a 0-ás indexű.
         </span>
         <div>
@@ -643,7 +643,7 @@ const NetworkEditor = ({ networkDoc, saveNetwork }: NetworkEditorProps) => {
               htmlFor="addNeuron"
               className="block text-sm text-gray-400 mb-1"
             >
-              Neuron hozzáadás réteghez
+              Neuron hozzáadása réteghez
             </label>
             <div className="flex gap-2">
               <div className="relative flex-1">

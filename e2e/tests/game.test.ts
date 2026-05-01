@@ -28,7 +28,7 @@ test.describe("Game user stories", () => {
   test("4.1.2 Lépési várakozás megadása - túl nagy", async ({ page }) => {
     await openHomeAndWaitForConnection(page);
 
-    const delayInput = page.getByLabel("Lépés késleltetés (mp)");
+    const delayInput = page.getByLabel("Lépéskésleltetés (mp)");
     await delayInput.fill("20");
     await delayInput.blur();
 
@@ -38,7 +38,7 @@ test.describe("Game user stories", () => {
   test("4.1.2 Lépési várakozás megadása - helyesen", async ({ page }) => {
     await openHomeAndWaitForConnection(page);
 
-    const delayInput = page.getByLabel("Lépés késleltetés (mp)");
+    const delayInput = page.getByLabel("Lépéskésleltetés (mp)");
     await delayInput.fill("8");
     await delayInput.blur();
 
@@ -68,7 +68,7 @@ test.describe("Game user stories", () => {
   test("4.1.4 Kör közti várakozás megadása - túl nagy", async ({ page }) => {
     await openHomeAndWaitForConnection(page);
 
-    const roundDelayInput = page.getByLabel("Kör késleltetés (mp)");
+    const roundDelayInput = page.getByLabel("Körkésleltetés (mp)");
     await roundDelayInput.fill("20");
     await roundDelayInput.blur();
 
@@ -78,7 +78,7 @@ test.describe("Game user stories", () => {
   test("4.1.4 Kör közti várakozás megadása - helyesen", async ({ page }) => {
     await openHomeAndWaitForConnection(page);
 
-    const roundDelayInput = page.getByLabel("Kör késleltetés (mp)");
+    const roundDelayInput = page.getByLabel("Körkésleltetés (mp)");
     await roundDelayInput.fill("8");
     await roundDelayInput.blur();
 
@@ -111,7 +111,7 @@ test.describe("Game user stories", () => {
 
   test("4.3.2 Lépés a játékban, nem következik", async ({ page }) => {
     await openHomeAndWaitForConnection(page);
-    const delayInput = page.getByLabel("Lépés késleltetés (mp)");
+    const delayInput = page.getByLabel("Lépéskésleltetés (mp)");
     await delayInput.fill("8");
     await page.getByRole("button", { name: "Játék létrehozása" }).click();
 

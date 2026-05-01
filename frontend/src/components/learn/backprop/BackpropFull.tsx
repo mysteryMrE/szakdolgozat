@@ -276,7 +276,7 @@ const STEP_CONFIGS: StepConfig[] = [
     id: "errorCalculation",
     content: (data) => (
       <StageContentWrapper
-        title={<>Veszteség számítás.</>}
+        title={<>Veszteségszámítás.</>}
         content={
           <>
             <div className="flex flex-row items-center justify-center gap-4">
@@ -316,7 +316,7 @@ const STEP_CONFIGS: StepConfig[] = [
         content={
           <>
             <p>
-              Amikor a kimeneti rétegen Softmax-ot használunk aktivációs
+              Amikor a kimeneti rétegen softmaxot használunk aktivációs
               függvényként és a veszteség függvény a keresztentrópia, akkor ez a
               derivált nagyon szépen leegyszerűsödik, és csak a kapott és a várt
               eloszlás különbsége:

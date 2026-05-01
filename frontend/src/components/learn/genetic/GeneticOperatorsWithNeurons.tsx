@@ -83,7 +83,7 @@ const GeneticOperatorsWithNeurons = () => {
         <span className="note">
           A genetikus algoritmus nem a legjobb választás ennek a feladatnak a
           megoldására. Egyrészt nagyon erőforrás-igényes a probléma nehézségéhez
-          képest, másrészt a fitness értékek (4-ből hány esetben ad jó választ)
+          képest, másrészt a fitnesz értékek (4-ből hány esetben ad jó választ)
           diszkrét természetűek, ami megnehezíti a folyamatos optimalizálást.
         </span>{" "}
         <br />A példa neuronok lépcsős aktivációs függvényt használnak.

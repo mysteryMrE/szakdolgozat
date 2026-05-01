@@ -483,15 +483,15 @@ const MenaceContent = () => {
       </div>
       <div className="content-box mt-10">
         <p>
-          A tanítás eredményeként MENACE sokkal jobban játszik, mint egy
+          A tanítás eredményeként a MENACE sokkal jobban játszik, mint egy
           véletlenszerűen lépő játékos, de nem tökéletes. Például bizonyos
           esetekben megfigyelhető, hogy nem blokkolja az ellenfél azonnali
           győzelmét, hanem inkább a saját győzelmét készíti elő. Ennek oka, hogy
           egy véletlenszerűen lépő ellenfél sokszor nem bünteti meg ezt a hibát,
           és a győzelemért járó jutalom nagyobb, mint a vereségért járó
-          büntetés, így MENACE vállalja a kockázatot. A kezdőlapon kipróbálható
-          MENACE, ezért a véletlenszerűen játszó játékoson felül saját maga
-          ellen is tanítva lett.
+          büntetés, így a MENACE vállalja a kockázatot. A kezdőlapon
+          kipróbálható MENACE, ezért a véletlenszerűen játszó játékoson felül
+          saját maga ellen is tanítva van.
         </p>
       </div>
     </div>

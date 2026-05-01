@@ -100,11 +100,11 @@ export async function startHumanVsMinimax(page: Page, rounds = 1) {
   await roundsInput.fill(String(rounds));
   await roundsInput.blur();
 
-  const delayInput = page.getByLabel("Lépés késleltetés (mp)");
+  const delayInput = page.getByLabel("Lépéskésleltetés (mp)");
   await delayInput.fill("0.02");
   await delayInput.blur();
 
-  const roundDelayInput = page.getByLabel("Kör késleltetés (mp)");
+  const roundDelayInput = page.getByLabel("Körkésleltetés (mp)");
   await roundDelayInput.fill("0.02");
   await roundDelayInput.blur();
 

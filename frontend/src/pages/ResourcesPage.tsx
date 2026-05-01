@@ -7,7 +7,7 @@ const resources = [
   {
     title: "MENACE - Wikipédia",
     href: "https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine",
-    note: "A MENACE Wikipédia oldala - története, működése és eredményei.",
+    note: "A MENACE Wikipédia oldala: története, működése és eredményei.",
     type: "article",
   },
   {
@@ -73,7 +73,7 @@ const resources = [
   {
     title: "Visszaterjesztés algoritmusa - Softmax és Cross Entropy",
     href: "https://www.youtube.com/watch?v=znqbtL0fRA0",
-    note: "A videóban a visszaterjesztés matematikai levezetését mutatja be, olyan aktivációs és veszteségfüggvénnyel, amit a bemutatóhoz használtam.",
+    note: "A videó a visszaterjesztés matematikai levezetését mutatja be, olyan aktivációs és veszteségfüggvénnyel, amit a bemutatóhoz használtam.",
     type: "video",
   },
 ];

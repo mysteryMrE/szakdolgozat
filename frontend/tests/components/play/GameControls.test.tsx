@@ -303,7 +303,7 @@ describe("GameControls", () => {
       expect(screen.queryByText("Betöltés...")).not.toBeInTheDocument();
     });
 
-    const playerDelayInput = screen.getByLabelText("Lépés késleltetés (mp)");
+    const playerDelayInput = screen.getByLabelText("Lépéskésleltetés (mp)");
     await clearAndType(user, playerDelayInput, "5");
     await user.tab();
 
@@ -350,7 +350,7 @@ describe("GameControls", () => {
         expect(screen.queryByText("Betöltés...")).not.toBeInTheDocument();
       });
 
-      const playerDelayInput = screen.getByLabelText("Lépés késleltetés (mp)");
+      const playerDelayInput = screen.getByLabelText("Lépéskésleltetés (mp)");
       await clearAndType(user, playerDelayInput, "5");
       await user.tab();
 
