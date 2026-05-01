@@ -44,7 +44,7 @@ const GeneticWheelSelection = ({
           szeletet kap, így nagyobb eséllyel kerül kiválasztásra a következő
           generációba / annak generálására. <br />
           <span className="text-sm text-gray-500">
-            Az kerékre írt számok a fenti neuronok sorszámai, a szeletek mérete
+            A kerékre írt számok a fenti neuronok sorszámai, a szeletek mérete
             pedig a fitnesz értékükkel arányos.
           </span>
         </p>

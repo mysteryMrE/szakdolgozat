@@ -22,9 +22,9 @@ const messageMap: Record<string, string> = {
     "Érvénytelen rétegek: legalább két elemet tartalmazó listának kell lennie, a bemeneti rétegnek 18 neuronnal, a kimeneti rétegnek pedig 9 neuronnal kell rendelkeznie.",
   "Maximum number of networks reached. Please delete an existing network before creating a new one.":
     "Elérted a neuronhálók maximális számát. Kérlek, törölj egy meglévő neuronhálót, mielőtt újat hozol létre.",
-  "Session revoked": "A munkamenet lejárt, kérlek jelentkezz be újra.",
+  "Session revoked": "A munkamenet lejárt, kérlek, jelentkezz be újra.",
   "User has no active session":
-    "A munkamenet lejárt, kérlek jelentkezz be újra.",
+    "A munkamenet lejárt, kérlek, jelentkezz be újra.",
   "Invalid refresh token": "Érvénytelen token.",
   "Invalid credentials": "Érvénytelen felhasználónév vagy jelszó.",
   "Invalid access token": "Érvénytelen token.",
@@ -43,9 +43,9 @@ const messageMap: Record<string, string> = {
     "Hiányzó token nem vendég WebSocket-kapcsolatához.",
   "Missing refresh token": "Hiányzó token.",
   "Database timed out, please try again":
-    "Az adatbázis elfoglalt, kérlek próbáld újra.",
+    "Az adatbázis elfoglalt, kérlek, próbáld újra.",
   "Resource already exists or constraint failed.":
-    "Az erőforrás már létezik vagy a megszorítás megsértve.",
+    "Az erőforrás már létezik vagy egy megszorítás megsértve.",
   "Database unavailable": "Az adatbázis nem elérhető.",
   "no active game session": "A játék nem található.",
   "Failed to find network after creation, failed to create network.":

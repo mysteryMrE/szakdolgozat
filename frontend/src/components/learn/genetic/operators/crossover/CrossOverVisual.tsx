@@ -113,7 +113,7 @@ const CrossOverVisual = ({
         <div className="mb-1 space-y-4">
           <div className="flex flex-col items-center justify-center">
             <label className="block text-white mb-2 mt-2">
-              Kezdő pont: {point2Start}
+              Kezdőpont: {point2Start}
             </label>
             <input
               type="range"
@@ -137,7 +137,7 @@ const CrossOverVisual = ({
           </div>
           <div className="flex flex-col items-center justify-center">
             <label className="block text-white mb-2">
-              Vég pont: {point2End}
+              Végpont: {point2End}
             </label>
             <input
               type="range"

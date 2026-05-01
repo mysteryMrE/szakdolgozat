@@ -56,7 +56,7 @@ const operators = [
     description:
       "A kiválasztódás operátorral választott egyedek kombinálása új egyedek létrehozásához.",
     example:
-      "72 és 19 keresztezése (a két számjegy közötti egy-pontos keresztezéssel) 79-et és 12-őt eredményez.",
+      "72 és 19 keresztezése (a két számjegy közötti egypontos keresztezéssel) 79-et és 12-t eredményez.",
   },
   {
     concept: "Mutáció",

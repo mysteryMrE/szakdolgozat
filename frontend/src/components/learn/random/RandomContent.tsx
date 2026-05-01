@@ -31,17 +31,18 @@ const RandomContent = () => {
   console.log("Current choice:", choice);
   return (
     <div className="content-container flex flex-col gap-5 md:gap-10 min-h-fit">
-      <h1>Random Ellenfél</h1>
+      <h1>Random ellenfél</h1>
       <div className="content-box">
         <p>
-          A random ellenfél veszi a játéktábla üres mezőit, és véletlenszerűen
-          választ egyet közülük. A választás során nem veszi figyelembe a játék
-          állását, minden mezőt ugyanakkora valószínűséggel választ.
+          A random ellenfél kiválasztja a játéktábla üres mezőit, és
+          véletlenszerűen választ egyet közülük. A választás során nem veszi
+          figyelembe a játék állását, minden mezőt ugyanakkora valószínűséggel
+          választ.
         </p>
       </div>
       <div className="content-box">
         <p>
-          Az alábbi játéktábla mezőire kattintva beállíthatóak a foglalt/üres
+          Az alábbi játéktábla mezőire kattintva beállíthatók a foglalt/üres
           mezők. A kerékre kattintva a random ellenfél kiválaszt egy üres mezőt.
         </p>
       </div>

@@ -11,9 +11,9 @@ const GeneticFitness = ({ networks, fitnessFunction }: GeneticFitnessProps) => {
     <div className="mt-5 md:mt-10">
       <h3>fitnesz függvény</h3>
       <p>
-        Az ÉS logikai kapunak 4 bemeneti esete van, (0,0), (0,1), (1,0), (1,1),
-        ezekre a kimeneteknek 0, 0, 0, 1. Az neuron fitnesz értéke az eltalált
-        kimenetek számával egyenlő.
+        Az ÉS logikai kapunak 4 bemeneti esete van: (0,0), (0,1), (1,0), (1,1),
+        ezekre a kimenetekn rendre 0, 0, 0, 1. A neuron fitnesz értéke az
+        eltalált kimenetek számával egyenlő.
       </p>
       <div className={`mt-5 grid grid-cols-1 sm-plus:grid-cols-2 gap-5`}>
         {networks?.map((network, i) => (

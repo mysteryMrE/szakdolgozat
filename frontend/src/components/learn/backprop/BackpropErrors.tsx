@@ -12,7 +12,7 @@ const BackpropErrors = () => {
         súlyokat és a torzításokat. Gyakran használt veszteségfüggvények az
         átlagos négyzetes hiba (Mean Squared Error) és a keresztentrópia
         veszteség (Cross-Entropy Loss). Utóbbit klasszifikációs feladatoknál
-        használják, sokszor a softmax függvénnyel kombinálva. A tic-tac-toe
+        használják, sokszor a softmax függvénnyel kombinálva. A Tic-Tac-Toe
         esetén mi is ezt használjuk.
       </p>
       <MSEContent />

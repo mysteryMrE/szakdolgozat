@@ -16,7 +16,7 @@ const NeuralNetworkContent = () => {
       <NeuronContent smallScreen={!isAboveMd} />
       <NetworkContent />
       <div className="content-box mt-6 ">
-        <h2 className="mt-5">Alkalmazása a tic-tac-toe játékban</h2>
+        <h2 className="mt-5">Alkalmazása a Tic-Tac-Toe játékban</h2>
         <p>
           Az ellenfélként használható neuronhálók a 9 mezőt 18 bemeneti értékké
           alakítják, ha egy mező üres akkor (0,0), ha X akkor (1,0), ha O akkor

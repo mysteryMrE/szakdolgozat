@@ -327,7 +327,7 @@ const MenaceContent = () => {
           reprezentáló gyöngyöt teszünk. <br />
           Döntetlen esetén minden kihúzott gyöngy visszakerül a dobozába, plusz
           egy azonos színű gyöngy. <br />
-          Vereség esetén egyik gyöngy sem került vissza a dobozába.
+          Vereség esetén egyik gyöngy sem kerül vissza a dobozába.
           <br />
         </p>
         <p className="">
@@ -345,7 +345,7 @@ const MenaceContent = () => {
           feladata. <br />A szerencsekerék szeletei a játéktáblának megfelelő
           gyufásdobozban lévő különböző gyöngyöket (azaz lehetséges lépéseket)
           reprezentálják. A körszeletek mérete a gyöngyök számától függ, így a
-          jobbnak ítélt lépések nagyobb az eséllyel kerülnek kiválasztásra.
+          jobbnak ítélt lépések nagyobb eséllyel kerülnek kiválasztásra.
         </p>
         <p className="mt-4">
           A mező értéke lehet X, O vagy üres, a mezőre kattintva lehet váltani a
@@ -353,11 +353,11 @@ const MenaceContent = () => {
           táblán egy olyan érvényes állás van, ahol a játék még nem ért véget.
           <br />A "Törlés" gombbal a tábla alaphelyzetbe állítható.
           <br />A "Tanítás" gomb megnyomásával a MENACE 10 000 játékot játszik
-          le random lépő ellenfél ellen, mindkét oldalon. <br />A "Statisztika"
-          gomb megnyomásával a MENACE 1000 játékot játszik le random lépő
-          ellenfél ellen, mindkét oldalon. <br />A "Nullázás" gombbal minden
-          gyufásdoboz alaphelyzetbe kerül, ilyenkor a MENACE úgy játszik, mint
-          egy véletlenszerűen lépő játékos.
+          le véletlenszerűen lépő ellenfél ellen, mindkét oldalon. <br />A
+          "Statisztika" gomb megnyomásával a MENACE 1000 játékot játszik le
+          random ellenfél ellen, mindkét oldalon. <br />A "Nullázás" gombbal
+          minden gyufásdoboz alaphelyzetbe kerül, ilyenkor a MENACE úgy játszik,
+          mint egy véletlenszerűen lépő játékos.
         </p>
       </div>
 

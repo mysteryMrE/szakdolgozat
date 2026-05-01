@@ -149,18 +149,18 @@ const MinimaxContent = () => {
         <h2>Mi az a Minimax?</h2>
         <p>
           A minimax algoritmus egy döntéshozatali stratégia, amelyet olyan
-          kétjátékos játékokban használnak, ahol a játékosok felváltva lépnek.
-          Az algoritmus feltételezi, hogy mindkét játékos optimálisan játszik -
-          azaz mindig a legjobb lépéseket teszik meg a győzelem és a vereség
-          elkerülésének érdekében.
+          kétszemélyes, zéróösszegű játékokban használnak, ahol a játékosok
+          felváltva lépnek. Az algoritmus feltételezi, hogy mindkét játékos
+          optimálisan játszik - azaz mindig a legjobb lépéseket teszik meg a
+          győzelem és a vereség elkerülése érdekében.
         </p>
         <p className="mt-4">
           A Maximizer (Max) megpróbálja elérni a lehető legmagasabb pontszámot.
           A Minimizer (Min) megpróbálja elérni a lehető legalacsonyabb
-          pontszámot. A tic-tac-toe játékban jellemzően X a Max és O a Min.
+          pontszámot. A Tic-Tac-Toe játékban jellemzően X a Max és O a Min.
         </p>
         <p>
-          A tic-tac-toe pontozása általában az X szemszögéből, a következőképpen
+          A Tic-Tac-Toe pontozása általában az X szemszögéből, a következőképpen
           történik: győzelem +1, vereség -1, döntetlen 0. Egyes esetekben
           érdemes bővíteni a pontozást a gyorsabb győzelem és a késleltetett
           vereség érdekében.
@@ -195,15 +195,15 @@ const MinimaxContent = () => {
             eredményt.
           </li>
           <li>
-            Ha egy útvonalon, ágon végigértünk, az eredmény elkezd visszafelé
+            Ha egy ág (útvonal) végére értünk, az eredmény elkezd visszafelé
             terjedni. Minden játékos figyelembe veszi az összes lehetséges lépés
-            által elért eredményt, és kiválasztja a számára legjobb eredményt
-            (Max a legmagasabbat, Min a legalacsonyabbat).
+            által elért eredményt, és kiválasztja a számára legkedvezőbbet (Max
+            a legmagasabbat, Min a legalacsonyabbat).
           </li>
           <li>
-            Ez a folyamat addig folytatódik, amíg vissza nem érünk az útvonal
-            elejére / a fa gyökeréhez, ami az eredetileg vizsgált állapot. Az
-            algoritmus így az összes lehetséges jövőbeli állapotot figyelembe
+            Ez a folyamat addig folytatódik, amíg vissza nem érünk a fa
+            gyökeréhez (útvonal elejére), amely az eredetileg vizsgált állapot.
+            Az algoritmus így az összes lehetséges jövőbeli állapotot figyelembe
             véve választja ki a legjobb lépést.
           </li>
         </ol>
@@ -214,7 +214,7 @@ const MinimaxContent = () => {
           soron következő játékos legjobb lépését mutatja. <br />
           Ha mindig a legjobb lépést választod, akkor a játék kimenetele már az
           elején tudható. Figyeld meg, hogyan tudod egyes lépésekkel
-          befolyásolni a "Várható eredmény"-t!
+          befolyásolni a "Várható eredmény" mezőt!
         </p>
         <div className="flex flex-col items-center gap-5 md:items-stretch md:flex-row">
           <div className="flex justify-center w-full md:w-1/2">
@@ -276,7 +276,7 @@ const MinimaxContent = () => {
         <h2>Minimax Fa</h2>
         <p className="mt-2">
           Itt a fenti táblához tartozó rekurzívan felépített minimax fa látható,
-          amelyet az algoritmus a döntés meghozatalához használ. Amennyiben a
+          amelyet az algoritmus a döntés meghozatalához használ. Amennyiben az
           állás játékosa X, a "gyerek" állások közül a legmagasabb pontszámot
           választja, ha O, akkor a legalacsonyabbat. A Lépés mező mutatja, hogy
           az adott állás hogyan keletkezett az őt megelőzőből.

@@ -159,7 +159,7 @@ const STEP_CONFIGS: StepConfig[] = [
     id: "hiddenActivation",
     content: (data) => (
       <StageContentWrapper
-        title={<>Rejtett réteg aktivációs érték.</>}
+        title={<>Rejtett réteg aktivációs értéke.</>}
         content={
           <>
             <div className="flex flex-row items-center justify-center gap-4">
@@ -247,7 +247,7 @@ const STEP_CONFIGS: StepConfig[] = [
     id: "outputSoftmax",
     content: (data) => (
       <StageContentWrapper
-        title={<>Kimeneti réteg aktivációs érték.</>}
+        title={<>Kimeneti réteg aktivációs értéke.</>}
         content={
           <>
             <div className="flex flex-row items-center justify-center gap-4">
@@ -355,8 +355,8 @@ const STEP_CONFIGS: StepConfig[] = [
         content={
           <>
             <p>
-              A láncszabályt kihasználva nem előről kezdjük a parciális derivált
-              számítását, hanem felhasználjuk a kimeneti réteg{" "}
+              A láncszabályt kihasználva nem elölről kezdjük a parciális
+              derivált számítását, hanem felhasználjuk a kimeneti réteg{" "}
               <span className="italic">hiba deltáját</span>.
             </p>
             <MathLatex
@@ -429,9 +429,9 @@ const STEP_CONFIGS: StepConfig[] = [
         content={
           <>
             <p>
-              A láncszabályt kihasználva nem előről kezdjük a parciális derivált
-              számítását, hanem felhasználjuk a réteg aktivációs értékének{" "}
-              <span className="italic">hiba deltáját</span>:
+              A láncszabályt kihasználva nem elölről kezdjük a parciális
+              derivált számítását, hanem felhasználjuk a réteg aktivációs
+              értékének <span className="italic">hiba deltáját</span>:
             </p>
             <MathLatex
               content={`\\( \\delta^{(1)} = \\dfrac{\\partial L}{\\partial z^{(1)}} = \\dfrac{\\partial L}{\\partial a^{(1)}} \\cdot \\dfrac{\\partial a^{(1)}}{\\partial z^{(1)}} \\)`}
@@ -601,7 +601,7 @@ const STEP_CONFIGS: StepConfig[] = [
               súlyozva:
             </div>
             <div>
-              A tanulási ráta egy pici szám, ami meghatározza, hogy mekkora
+              A tanulási ráta egy pici szám, amely meghatározza, hogy mekkora
               lépéseket teszünk a gradiens mentén. Ha túl nagy, akkor
               "átugorhatjuk" a minimumot, ha túl kicsi, akkor nagyon lassan
               konvergálunk. Általában 0.01 és 0.0001 közötti értékeket szokás
@@ -901,7 +901,7 @@ const BackpropFull = () => {
   const mathContent = (step: AnimStep) => {
     const config = STEP_CONFIGS.find((conf) => conf.id === step);
     if (!config) {
-      return <div>Unknown step: {step}</div>;
+      return <div>Ismeretlen lépés: {step}</div>;
     }
     return config.content(stepData);
   };

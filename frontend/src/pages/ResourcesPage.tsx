@@ -7,13 +7,13 @@ const resources = [
   {
     title: "MENACE - Wikipédia",
     href: "https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine",
-    note: "A MENACE wikipédia oldala - története, működése és eredményei.",
+    note: "A MENACE Wikipédia oldala - története, működése és eredményei.",
     type: "article",
   },
   {
     title: "MENACE - fórum",
     href: "https://forum.gethopscotch.com/t/menace-tic-tac-toe/61470/8",
-    note: "A fórumon egy felhasználó osztja meg gondolatait MENACE algoritmus implementációjáról. Képen látható a szimmetria kihasználásával születő összes játékállás.",
+    note: "A fórumon egy felhasználó osztja meg gondolatait a MENACE algoritmus implementációjáról. A képen látható a szimmetria kihasználásával születő összes játékállás.",
     type: "article",
   },
   {
@@ -23,9 +23,9 @@ const resources = [
     type: "article",
   },
   {
-    title: "Minimax tic-tac-toe implementáció",
+    title: "Minimax Tic-Tac-Toe implementáció",
     href: "https://www.geeksforgeeks.org/dsa/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/",
-    note: "A cikk egy tic-tac-toe játékhoz készült minimax algoritmus implementációt mutat be.",
+    note: "A cikk egy Tic-Tac-Toe játékhoz készült minimax algoritmus implementációt mutat be.",
     type: "article",
   },
   {
@@ -41,15 +41,15 @@ const resources = [
     type: "article",
   },
   {
-    title: "Genetikus algoritmus - hátizsák probléma",
+    title: "Genetikus algoritmus - hátizsák-probléma",
     href: "https://www.youtube.com/watch?v=MacVqujSXWE",
-    note: "A videó a genetikus algoritmus működését mutatja be a hátizsák probléma megoldásában.",
+    note: "A videó a genetikus algoritmus működését mutatja be a hátizsák-probléma megoldásában.",
     type: "video",
   },
   {
-    title: "Genetikus algoritmus - utazó ügynök probléma",
+    title: "Genetikus algoritmus - utazóügynök-probléma",
     href: "https://www.youtube.com/watch?v=Wgn_aPH3OEk",
-    note: "A videó a genetikus algoritmus működését mutatja be az utazó ügynök probléma megoldásában.",
+    note: "A videó a genetikus algoritmus működését mutatja be az utazóügynök-probléma megoldásában.",
     type: "video",
   },
   {
@@ -58,27 +58,22 @@ const resources = [
     note: "A cikk egy MLP működését és tanítását ismerteti egy példán keresztül.",
     type: "article",
   },
-  // {
-  //   title: "Visszaterjesztés algoritmusa",
-  //   href: "https://youtu.be/sIX_9n-1UbM?si=SGkV46CdtciBTm75",
-  //   note: "A videóban szóesik a láncszabályról, visszaterjesztésről és a gradiet descent működéséről.",
-  // },
   {
     title: "Visszaterjesztés intuitívan",
     href: "https://www.youtube.com/watch?v=Ilg3gGewQ5U&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=3",
-    note: "A videóban a visszaterjesztés algoritmusa mögötti intuíció van bemutatva.",
+    note: "A videó a visszaterjesztés algoritmusa mögötti intuíciót mutatja be.",
     type: "video",
   },
   {
     title: "Visszaterjesztés algoritmusa - matematika",
     href: "https://www.youtube.com/watch?v=tIeHLnjs5U8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=4",
-    note: "Az előző videó folytatása, jobban belemenve a matematikai részletekbe.",
+    note: "Az előző videó folytatása, amely részletesebben bemutatja a matematikai részeket.",
     type: "video",
   },
   {
     title: "Visszaterjesztés algoritmusa - Softmax és Cross Entropy",
     href: "https://www.youtube.com/watch?v=znqbtL0fRA0",
-    note: "A videóban a visszaterjesztés matematikai levezetése van bemutatva, olyan aktivációs és veszteség függvénnyel, amit a bemutatóhoz használtam.",
+    note: "A videóban a visszaterjesztés matematikai levezetését mutatja be, olyan aktivációs és veszteségfüggvénnyel, amit a bemutatóhoz használtam.",
     type: "video",
   },
 ];

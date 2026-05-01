@@ -63,10 +63,9 @@ const NetworkContent = () => {
         </p>
         <p>
           {" "}
-          Itt választhatsz 3 előre definiált neuronháló közül, mindegyik 2
-          bemenetes, van egy két neuronból álló rejtett rétegük, és egy egy
-          neuronos kimeneti rétegük. A példa hálók minden neuronja lépcsős
-          aktivációs függvényt használ, jelölje ezt{" "}
+          Itt választhatsz 3 előre definiált neuronháló közül, mindegyiknek két
+          bemeneti, két rejtett, és egy kimeneti neuronja van. A példa hálók
+          minden neuronja lépcsős aktivációs függvényt használ, jelölje ezt{" "}
           <span className="font-bold">F</span>. A neuronhálók 3 jól ismert
           logikai kaput valósítanak meg: ÉS (AND), VAGY (OR) és KIZÁRÓ VAGY
           (XOR). A bemenet lehet 0 vagy 1, a kimenet is 0 vagy 1 lesz (1 igaz, 0

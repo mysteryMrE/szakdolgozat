@@ -303,7 +303,7 @@ const createTeachingStates = (): StateConfig[] => [
   },
   {
     id: "add_reward_beads",
-    buttonText: "Jutalom gyöngyök",
+    buttonText: "Jutalomgyöngyök",
     handler: async (ctx) => {
       const targetIndex = ctx.picks[ctx.pickIndex];
 

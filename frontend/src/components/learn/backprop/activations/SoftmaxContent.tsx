@@ -14,7 +14,7 @@ const SoftmaxContent = () => {
       <p>
         A softmax függvény egy olyan aktivációs függvény, amelyet gyakran
         használnak a neurális hálózatok kimeneti rétegében, különösen
-        többosztályos osztályozási problémák esetén, a tic-tac-toe esete ilyen
+        többosztályos osztályozási problémák esetén, a Tic-Tac-Toe esete ilyen
         (9 "osztály" / mező van). A softmax függvény a bemeneti vektor elemeit
         valószínűségi eloszlássá alakítja, ahol az egyes elemek értékei 0 és 1
         között vannak, és az összegük 1. Az előzőekkel ellentétben a softmax nem

@@ -7,7 +7,7 @@ const BackpropBackward = () => {
         egy elismert ételkritikus véleményezze a főztjét. A kifinomult ízlésű
         kritikus nemcsak egy pontszámot ad ("Ez 3/10-es"), hanem konkrét, segítő
         visszajelzést is: "túl sós, de nem elég édes". A kukta visszamegy a
-        konyhába és a kritika alapján módosítja a receptet. Ez a folyamat addig
+        konyhába, és a kritika alapján módosítja a receptet. Ez a folyamat addig
         ismétlődik, amíg a kritikus elégedett nem lesz az étellel.
       </p>
       <div className="mt-4 flex flex-col items-center leading-relaxed">
@@ -30,7 +30,7 @@ const BackpropBackward = () => {
           </li>
           <li>
             <span className="font-semibold">
-              A segítő kritika - A Gradiens:
+              A segítő kritika - A gradiens:
             </span>{" "}
             Ennek a lépésnek a célja, hogy megkapjuk a "segítő kritikát", ami
             megmondja, melyik "hozzávalón" (súlyon és torzításon) és hogyan kell
@@ -59,7 +59,7 @@ const BackpropBackward = () => {
             <span className="font-semibold">
               Ízkavalkád - A visszaterjesztés és a láncszabály szerepe:
             </span>{" "}
-            A hozzávalók (paraméterek) sokasága és összetettsége (több lépéses
+            A hozzávalók (paraméterek) sokasága és összetettsége (többlépéses
             recept - több réteg) miatt a gradiens kiszámítása nem egyszerű. A
             sütőből kivett csokitortából (a kimenetből) nem lehet közvetlenül
             megállapítani minden egyes hozzávaló pontos hatását a végső ízre.
@@ -68,8 +68,8 @@ const BackpropBackward = () => {
             nevét, hogy a hibát a kimeneti rétegnél kezdjük el elemezni, majd a
             deriválási láncszabály segítségével haladunk visszafelé, rétegről
             rétegre, egészen a bemenetig. Így minden egyes súly és torzítás
-            gradiense kiszámításra kerül, és a hálózat tudja, hogyan módosítsa
-            ezeket a paramétereket a hiba csökkentése érdekében. <br />
+            gradiense kiszámítható, és a hálózat tudja, hogyan módosítsa ezeket
+            a paramétereket a hiba csökkentése érdekében. <br />
             Térjünk vissza a csokitortához, legyen rajta eper is. A szeletbe
             harapva valami nem stimmel. A torta 3 fő része a csokis borítás, a
             friss eper és a puha piskóta. Az eper tökéletes, így a hibát a
@@ -83,7 +83,7 @@ const BackpropBackward = () => {
         </ul>
         <p className="mt-4">
           Ez a folyamat ismétlődik több százszor, ezerszer vagy milliószor, amíg
-          a hálózat "receptje" elég kifinomult nem lesz ahhoz, hogy a kritikus
+          a hálózat "receptje" nem lesz elég kifinomult ahhoz, hogy a kritikus
           (a veszteségfüggvény) alacsony hibát adjon, azaz a hálózat pontos
           előrejelzéseket tegyen.
         </p>

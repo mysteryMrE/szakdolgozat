@@ -15,10 +15,10 @@ const GeneticTournamentSelection = ({
         <p>
           A versenyszelekció (Tournament Selection) során a populációból k
           egyedet véletlenszerűen kiválasztunk. Az így létrejött csoportnak a
-          legnagyobb fitnesz értékű egyed a nyeretese. Ezt a folyamatot
+          legnagyobb fitnesz értékű egyed a nyertese. Ezt a folyamatot
           ismételjük, amíg el nem érjük a kívánt számú szülőt. <br />
           <span className="text-sm text-gray-500">
-            Kisebb k mellett, a gyengébb egyedek nagyobb eséllyel kerülnek
+            Kisebb k mellett a gyengébb egyedek nagyobb eséllyel kerülnek
             kiválasztásra. Magas k mellett az erősebb egyedek többször kerülnek
             versenybe, ahol kiszorítják a gyengébbeket. Például k=3 esetén
             Neuron 1 és Neuron 3 soha nem kerülnek kiválasztásra.

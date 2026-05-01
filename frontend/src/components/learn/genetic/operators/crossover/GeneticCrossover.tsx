@@ -11,13 +11,13 @@ const GeneticCrossover = ({ parent1, parent2 }: GeneticCrossoverProps) => {
       <h3>Keresztezés</h3>
       <p>
         A keresztezés során a kiválasztott szülők génjei kombinálódnak, hogy új
-        utódokat hozzanak létre. Ez lehet egy-pontos, több-pontos vagy uniform
+        utódokat hozzanak létre. Ez lehet egypontos, többpontos vagy uniform
         keresztezés.
       </p>
       <div className="mt-4 md:mt-10 p-4 rounded border border-slate-700">
-        <h4>Egy-pontos keresztezés</h4>
+        <h4>Egypontos keresztezés</h4>
         <p>
-          Az egy-pontos keresztezés során egy ponton a szülők génjei
+          Az egypontos keresztezés során egy ponton a szülők génjei
           kicserélődnek.
         </p>
         <div className="text-center">
@@ -25,10 +25,10 @@ const GeneticCrossover = ({ parent1, parent2 }: GeneticCrossoverProps) => {
         </div>
       </div>
       <div className="mt-4 md:mt-10 p-4 rounded border border-slate-700">
-        <h4>Több-pontos keresztezés</h4>
+        <h4>Többpontos keresztezés</h4>
         <p>
-          A több-pontos keresztezés során több ponton történik a géncsere. Itt
-          egy két pontos példa van, ilyenkor a gének a két kiválasztott pont
+          A többpontos keresztezés során több ponton történik a géncsere. Itt
+          egy kétpontos példa van, ilyenkor a gének a két kiválasztott pont
           között cserélődnek ki.
         </p>
         <div className="text-center">

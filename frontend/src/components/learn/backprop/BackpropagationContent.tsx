@@ -17,9 +17,9 @@ const BackpropagationContent = () => {
           az első rétegig, és frissíti a súlyokat és a torzításokat.
         </p>
         <p className="note">
-          A hiba egy általános fogalom, átlalában a várt és a kapott eredmény
+          A hiba egy általános fogalom, általában a várt és a kapott eredmény
           eltérésére utal. A veszteség pedig a veszteségfüggvény által számított
-          érték, amely számszerűen fejezi ki, avagy "leméri" a hibát.
+          érték, amely számszerűsíti a hibát.
         </p>
       </div>
       <BackpropInputToOutput />
