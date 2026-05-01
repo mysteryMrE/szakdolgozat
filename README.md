@@ -1,2 +1,2 @@
 # Szakdolgozat
-Részletes dokumentáció a [szakdolgozat.pdf](szakdolgozat.pdf) fájlban.
+A dokumentáció a [szakdolgozat.pdf](szakdolgozat.pdf) fájlban található.
