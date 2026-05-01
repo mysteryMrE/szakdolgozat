@@ -548,9 +548,9 @@ const PlaygroundPage = (): ReactNode => {
         tanításukat. <br /> A létrehozáskor add meg a hálózat nevét és a rétegek
         számát. <br />A tanításnál beállíthatod a tanítási ciklusok (epoch)
         számát, a kezdeti tanulási rátát és a korai terminálási határt. <br />A
-        pontosság azt mutatja, hogy a 627 egyedi játéktáblából hány esetén esik
-        egybe a neurális hálózat és a Minimax algoritmus által választott
-        lépését.
+        pontosság azt fejezi ki, hogy a 627 egyedi játéktábla esetén milyen
+        arányban egyezik meg a neurális hálózat által választott lépés a Minimax
+        algoritmus döntésével.
         <br /> A veszteség pedig az egy tanítási ciklus alatti átlagos
         kereszt-entrópia veszteség értéke.
       </div>
