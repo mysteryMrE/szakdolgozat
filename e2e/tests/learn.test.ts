@@ -4,7 +4,7 @@ test.describe("Learn user stories", () => {
   const cases = [
     { name: "Minimax", buttonName: "Minimax", heading: "Minimax" },
     { name: "Menace", buttonName: "Menace", heading: "MENACE" },
-    { name: "Random", buttonName: "Random", heading: "Random Ellenfél" },
+    { name: "Random", buttonName: "Random", heading: "Random ellenfél" },
     {
       name: "Neuronháló",
       buttonName: "Neuronháló",
