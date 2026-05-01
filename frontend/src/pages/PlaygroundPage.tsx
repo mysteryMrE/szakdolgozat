@@ -549,8 +549,9 @@ const PlaygroundPage = (): ReactNode => {
         számát. <br />A tanításnál beállíthatod a tanítási ciklusok (epoch)
         számát, a kezdeti tanulási rátát és a korai terminálási határt. <br />A
         pontosság azt mutatja, hogy a 627 egyedi játéktáblából hány esetén
-        választja a minimax algoritmus lépését. A veszteség pedig az egy
-        tanítási ciklus alatti átlagos kereszt-entrópia veszteség értéke. <br />{" "}
+        választja a minimax algoritmus lépését.
+        <br /> A veszteség pedig az egy tanítási ciklus alatti átlagos
+        kereszt-entrópia veszteség értéke. <br />{" "}
         <span className="note">
           A bemeneti mezők megszorításait elolvashatod, ha rájuk viszed az
           egeret.
