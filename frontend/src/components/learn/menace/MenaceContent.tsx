@@ -490,8 +490,8 @@ const MenaceContent = () => {
           egy véletlenszerűen lépő ellenfél sokszor nem bünteti meg ezt a hibát,
           és a győzelemért járó jutalom nagyobb, mint a vereségért járó
           büntetés, így MENACE vállalja a kockázatot. A kezdőlapon kipróbálható
-          MENACE, ezért a véletlenszerűen játszó játékoson felül egy tökéletesen
-          játszó ellenfél ellen is tanítva lett.
+          MENACE, ezért a véletlenszerűen játszó játékoson felül saját maga
+          ellen is tanítva lett.
         </p>
       </div>
     </div>
