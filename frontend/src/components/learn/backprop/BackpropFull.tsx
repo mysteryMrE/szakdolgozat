@@ -5,6 +5,8 @@ import BackpropVisual from "./BackpropVisual";
 import type { BackpropAnimStep as AnimStep } from "../../../types";
 import { useWindowSize } from "../../../contexts/WindowSizeContext";
 
+// AI assisted Latex formatting.
+
 declare global {
   interface Window {
     MathJax?: {
@@ -259,7 +261,7 @@ const STEP_CONFIGS: StepConfig[] = [
               <div className="flex flex-col items-center justify-center gap-2">
                 <MathLatex content={`\\( f = Softmax \\)`} />
                 <MathLatex
-                  content={`\\( Softmax(z_{i}) = \\dfrac{\\large e^{\\Large z_{i}}}{\\sum_{j=1}^{K} \\large e^{\\Large z_{j}}} \\)`}
+                  content={`\\( Softmax(z)_{i} = \\dfrac{\\large e^{\\Large z_{i}}}{\\sum_{j=1}^{K} \\large e^{\\Large z_{j}}} \\)`}
                 />
                 <MathLatex content={`\\( K = 2\\)`} />
               </div>
@@ -317,7 +319,7 @@ const STEP_CONFIGS: StepConfig[] = [
           <>
             <p>
               Amikor a kimeneti rétegen softmaxot használunk aktivációs
-              függvényként és a veszteség függvény a keresztentrópia, akkor ez a
+              függvényként és a veszteségfüggvény a keresztentrópia, akkor ez a
               derivált nagyon szépen leegyszerűsödik, és csak a kapott és a várt
               eloszlás különbsége:
             </p>
@@ -430,12 +432,14 @@ const STEP_CONFIGS: StepConfig[] = [
           <>
             <p>
               A láncszabályt kihasználva nem elölről kezdjük a parciális
-              derivált számítását, hanem felhasználjuk a réteg aktivációs
-              értékének <span className="italic">hiba deltáját</span>:
+              derivált számítását, hanem felhasználjuk a veszteség aktivációs
+              értékek szerinti deriváltját:
             </p>
+
             <MathLatex
-              content={`\\( \\delta^{(1)} = \\dfrac{\\partial L}{\\partial z^{(1)}} = \\dfrac{\\partial L}{\\partial a^{(1)}} \\cdot \\dfrac{\\partial a^{(1)}}{\\partial z^{(1)}} \\)`}
+              content={`\\( \\delta_j^{(1)} = \\dfrac{\\partial L}{\\partial z_j^{(1)}} = \\dfrac{\\partial L}{\\partial a_j^{(1)}} \\cdot \\dfrac{\\partial a_j^{(1)}}{\\partial z_j^{(1)}} \\)`}
             />
+
             <div className="flex flex-col md:flex-row md:gap-1 gap-2 justify-center items-center">
               <p>Azt már tudjuk, hogy</p>
               <span>
@@ -445,8 +449,10 @@ const STEP_CONFIGS: StepConfig[] = [
                 .
               </span>
             </div>
+
             <div className="flex flex-col gap-2 justify-center items-center">
               <p>Azt is tudjuk, hogy</p>
+
               <div className="flex flex-row flex-wrap items-baseline justify-center gap-2">
                 <MathLatex content={`\\( a^{(1)} = ReLU(z^{(1)}) \\)`} />
 
@@ -459,10 +465,18 @@ const STEP_CONFIGS: StepConfig[] = [
                   <span>,</span>
                 </div>
               </div>
-              <p>ezért</p>
+
+              <p>ezért komponensenként</p>
+
               <span>
                 <MathLatex
-                  content={`\\( \\dfrac{\\partial a^{(1)}}{\\partial z^{(1)}} = \\begin{bmatrix} ReLU'(${
+                  content={`\\( \\dfrac{\\partial a_j^{(1)}}{\\partial z_j^{(1)}} = ReLU'(z_j^{(1)}) \\)`}
+                />
+              </span>
+
+              <span>
+                <MathLatex
+                  content={`\\( ReLU'(z^{(1)}) = \\begin{bmatrix} ReLU'(${
                     data.z1[0]
                   }) \\\\ ReLU'(${
                     data.z1[1]
@@ -470,16 +484,18 @@ const STEP_CONFIGS: StepConfig[] = [
                     data.z1[0],
                   )} \\\\ ${data.ReLUDerivative(data.z1[1])} \\end{bmatrix} \\)`}
                 />
-                .
               </span>
             </div>
+
             <div className="w-full flex flex-col gap-2">
               <div className="text-center">Összerakva: </div>
+
               <div className="w-fit max-w-full mx-auto">
                 <div className="flex flex-col items-start gap-2 mt-2 md:flex-row md:justify-center">
                   <MathLatex
-                    content={`\\( \\delta^{(1)} =  \\dfrac{\\partial L}{\\partial z^{(1)}} = \\dfrac{\\partial L}{\\partial a^{(1)}} \\cdot \\dfrac{\\partial a^{(1)}}{\\partial z^{(1)}} \\)`}
+                    content={`\\( \\delta^{(1)} = \\dfrac{\\partial L}{\\partial z^{(1)}} = \\dfrac{\\partial L}{\\partial a^{(1)}} \\odot ReLU'(z^{(1)}) \\)`}
                   />
+
                   <MathLatex
                     content={`\\( = \\begin{bmatrix} ${
                       data.dActivation1[0]

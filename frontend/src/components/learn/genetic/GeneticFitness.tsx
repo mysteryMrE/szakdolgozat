@@ -9,7 +9,7 @@ interface GeneticFitnessProps {
 const GeneticFitness = ({ networks, fitnessFunction }: GeneticFitnessProps) => {
   return (
     <div className="mt-5 md:mt-10">
-      <h3>fitnesz függvény</h3>
+      <h3>Fitnesz függvény</h3>
       <p>
         Az ÉS logikai kapunak 4 bemeneti esete van: (0,0), (0,1), (1,0), (1,1),
         ezekre a kimenetek rendre 0, 0, 0, 1. A neuron fitnesz értéke az

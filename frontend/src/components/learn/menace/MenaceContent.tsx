@@ -309,7 +309,7 @@ const MenaceContent = () => {
       <div className="content-box ">
         <p>
           A MENACE (angolul Matchbox Educable Noughts And Crosses Engine) egy
-          egyszerű, de "okos" tic-tac-toe játékos, amelyet Donald Michie talált
+          egyszerű, de "okos" Tic-Tac-Toe játékos, amelyet Donald Michie talált
           ki 1961-ben.
         </p>
         <p className="mt-2">
@@ -317,8 +317,8 @@ const MenaceContent = () => {
           doboz egy adott játéktáblát reprezentál. Az egyes dobozokban színes
           gyöngyök vannak, a különböző színek a különböző üres mezőket, azaz a
           lehetséges lépéseket jelölik. Amikor a MENACE játszik, kiválasztja a
-          jelenlegi játéktáblának megfelelő gyufásdobozt, majd a dobozban lévő
-          gyöngyök közül véletlenszerűen kihúz egyet, és megteszi a gyöngy által
+          játéktáblának megfelelő gyufásdobozt, majd a dobozban lévő gyöngyök
+          közül véletlenszerűen kihúz egyet, és megteszi a gyöngy által
           reprezentált lépést. <br />A menet végén attól függően, hogy a menet
           kimenetele győzelem, vereség vagy döntetlen volt, a MENACE jutalmat
           vagy büntetést kap. <br />
@@ -340,7 +340,7 @@ const MenaceContent = () => {
       <MenaceTrainSimulation wheelSize={wheelSize} />
       <div className="content-box mt-10">
         <p>
-          Alább egy egyszerű MENACE bemutató látható. <br />A táblán
+          Alább egy egyszerű MENACE bemutató található. <br />A táblán
           előállítható egy játékállás, ahol a következő lépés megtétele a MENACE
           feladata. <br />A szerencsekerék szeletei a játéktáblának megfelelő
           gyufásdobozban lévő különböző gyöngyöket (azaz lehetséges lépéseket)
@@ -355,9 +355,9 @@ const MenaceContent = () => {
           <br />A "Tanítás" gomb megnyomásával a MENACE 10 000 játékot játszik
           le véletlenszerűen lépő ellenfél ellen, mindkét oldalon. <br />A
           "Statisztika" gomb megnyomásával a MENACE 1000 játékot játszik le
-          random ellenfél ellen, mindkét oldalon. <br />A "Nullázás" gombbal
-          minden gyufásdoboz alaphelyzetbe kerül, ilyenkor a MENACE úgy játszik,
-          mint egy véletlenszerűen lépő játékos.
+          random ellenfél ellen, X és O játékosként is. <br />A "Nullázás"
+          gombbal minden gyufásdoboz alaphelyzetbe kerül, ilyenkor a MENACE úgy
+          játszik, mint egy véletlenszerűen lépő játékos.
         </p>
       </div>
 

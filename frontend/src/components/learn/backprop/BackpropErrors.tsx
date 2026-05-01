@@ -7,7 +7,7 @@ const BackpropErrors = () => {
       <h2>Veszteség</h2>
       <p>
         A veszteségfüggvény (loss function) méri a hálózat kimenetének és a várt
-        kimenetnek a különbségét. A visszaterjesztés során a veszteség függvény
+        kimenetnek a különbségét. A visszaterjesztés során a veszteségfüggvény
         gradiensét számítjuk ki, hogy meghatározzuk, hogyan kell frissíteni a
         súlyokat és a torzításokat. Gyakran használt veszteségfüggvények az
         átlagos négyzetes hiba (Mean Squared Error) és a keresztentrópia

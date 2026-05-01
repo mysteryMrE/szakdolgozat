@@ -3,89 +3,83 @@ const BackpropBackward = () => {
     <div className="content-box mt-4 ">
       <h2>A visszaterjesztés folyamata</h2>
       <p>
-        Képzeljünk el egy ambiciózus kuktát! A kukta lehetőséget kap arra, hogy
-        egy elismert ételkritikus véleményezze a főztjét. A kifinomult ízlésű
-        kritikus nemcsak egy pontszámot ad ("Ez 3/10-es"), hanem konkrét, segítő
-        visszajelzést is: "túl sós, de nem elég édes". A kukta visszamegy a
-        konyhába, és a kritika alapján módosítja a receptet. Ez a folyamat addig
-        ismétlődik, amíg a kritikus elégedett nem lesz az étellel.
+        Képzeljünk el egy ambiciózus kuktát, aki lehetőséget kap arra, hogy egy
+        elismert ételkritikus véleményezze a főztjét. A kifinomult ízlésű
+        kritikus nemcsak egy pontszámot ad, például azt, hogy az étel "3/10-es",
+        hanem konkrét visszajelzést is megfogalmaz: "túl sós, és nem elég édes".
+        A pontszám megmutatja, hogy az étel mennyire tér el az elvárttól, a
+        részletesebb kritika pedig segít eldönteni, milyen irányban kell
+        módosítani a receptet. A kukta ezután visszamegy a konyhába, a konkrét
+        visszajelzés alapján módosítja a receptet, majd elkészíti újra az ételt.
+        Ez a folyamat addig ismétlődik, amíg a kritikus elégedett nem lesz az
+        étellel.
       </p>
       <div className="mt-4 flex flex-col items-center leading-relaxed">
         <p className="mt-4 font-semibold ">
-          A neuronhálók esetén egy nagyon hasonló folyamat zajlik le:
+          A neurális hálók esetén egy nagyon hasonló folyamat zajlik le:
         </p>
         <ul className="list-decimal list-inside mt-2 text-left w-5/6 space-y-3">
           <li>
             <span className="font-semibold">Az étel elkészítése:</span> A
             neurális hálózat a bemeneti adatok alapján elvégzi a számításokat,
-            és előállít egy kimenetet (ez a "főzés").
+            és előállít egy kimenetet.
           </li>
           <li>
-            <span className="font-semibold">A kritikus véleménye:</span> A
-            veszteségfüggvény (a "kritikus") összehasonlítja a hálózat kimenetét
-            a várt, helyes eredménnyel, és kiszámolja a veszteség mértékét. Ez
-            olyan, mint a kritikus 3/10-es pontszáma - megmondja, mekkora a
-            "baj", de önmagában nem árulja el, hogy az egyes összetevők milyen
-            mértékben járultak hozzá.
+            <span className="font-semibold">A kritikus pontszáma:</span>A
+            veszteségfüggvény összehasonlítja a hálózat kimenetét a várt, helyes
+            eredménnyel, és kiszámítja a veszteség mértékét. Ez megmondja,
+            mekkora a baj, de nem árulja el, hogyan lehetne a helyzeten
+            javítani.
           </li>
           <li>
-            <span className="font-semibold">
-              A segítő kritika - a gradiens:
-            </span>{" "}
-            Ennek a lépésnek a célja, hogy megkapjuk a "segítő kritikát", ami
-            megmondja, melyik "hozzávalón" (súlyon és torzításon) és hogyan kell
-            változtatni. Erre a "kritikára" hasonlít a gradiens. <br />A
-            gradiens egy vektor, ahol minden egyes szám egy-egy "hozzávalóhoz"
-            (paraméterhez) tartozik. Ez a számsor, lista a hiba leggyorsabb
-            növelésének "receptje" (a gradiens tehát egy X dimenziós felület
-            legmeredekebb emelkedőjének irányát mutatja meg egy adott pontban).
-            Például, ha a gradiens sóra vonatkozóan +2.5, a borsnál pedig -0.1,
-            az azt jelenti, hogy a hiba a leggyorsabban úgy nő, ha növeljük a só
+            <span className="font-semibold">A segítő kritika:</span> A neurális
+            hálózatban ezt az információt a gradiens adja meg. A gradiens egy
+            vektor, ahol minden egyes szám egy-egy paraméterhez ("hozzávalóhoz")
+            tartozik. Ez a számsor a veszteség leggyorsabb növelésének irányát
+            adja meg. A gradiens tehát egy többdimenziós felület legmeredekebb
+            emelkedőjének irányát mutatja meg egy adott pontban. Például, ha a
+            gradiens sóra vonatkozóan +2.5, a borsnál pedig -0.1, az azt
+            jelenti, hogy a veszteség a leggyorsabban úgy nő, ha növeljük a só
             mennyiségét és csökkentjük a borsét. A számokból az is kiderül, hogy
             a só mennyiségének kis változtatása sokkal nagyobb változást okoz a
-            hibában, mint a borsé.
+            veszteségben, mint a borsé.
           </li>
           <li>
-            <span className="font-semibold">
-              A recept módosítása - gradiens ereszkedés:
-            </span>{" "}
-            Mivel a célunk a hiba csökkentése, a hálózat pont a gradienssel
+            <span className="font-semibold">A recept módosítása:</span> Mivel a
+            célunk a veszteség csökkentése, a hálózat pont a gradienssel
             ellentétes irányba módosítja a paramétereit (súlyok és torzítások).
-            Ezt hívják gradiens ereszkedésnek (gradient descent). Azt, hogy
-            mekkorát lépjünk ebben az ellentétes irányban (a kukta hány grammal
+            Ezt a gradienscsökkenés módszerének (gradient descent) nevezzük.
+            Azt, hogy mekkora módosítást végzünk (a kukta hány grammal
             csökkentse a sót), a tanulási ráta (learning rate) határozza meg.
           </li>
           <li>
             <span className="font-semibold">
-              Ízkavalkád - A visszaterjesztés és a láncszabály szerepe:
+              Ízkavalkád - a láncszabály szerepe:
             </span>{" "}
-            A hozzávalók (paraméterek) sokasága és összetettsége (többlépéses
-            recept - több réteg) miatt a gradiens kiszámítása nem egyszerű. A
-            sütőből kivett csokitortából (a kimenetből) nem lehet közvetlenül
-            megállapítani minden egyes hozzávaló pontos hatását a végső ízre.
-            Itt jön képbe a visszaterjesztés algoritmusa, amely a deriválási
-            láncszabályt használja. Maga a "visszaterjesztés" onnan kapta a
-            nevét, hogy a hibát a kimeneti rétegnél kezdjük el elemezni, majd a
-            deriválási láncszabály segítségével haladunk visszafelé, rétegről
-            rétegre, egészen a bemenetig. Így minden egyes súly és torzítás
-            gradiense kiszámítható, és a hálózat tudja, hogyan módosítsa ezeket
-            a paramétereket a hiba csökkentése érdekében. <br />
-            Térjünk vissza a csokitortához, legyen rajta eper is. A szeletbe
-            harapva valami nem stimmel. A torta 3 fő része a csokis borítás, a
-            friss eper és a puha piskóta. Az eper tökéletes, így a hibát a
-            csokis borítás és a piskóta között keressük. Külön-külön kóstolva
-            egyik sem állja meg igazán a helyét. A torta{" "}
-            <span className="italic">szétszerelése</span> közben számontartjuk,
-            hogy az egyes részeket hogyan érdemes változtatni az íz javításához.
-            Végül arra jutunk, hogy ha a piskótában csökkentenénk, a csokis
-            borításban pedig növelnénk a vaj mennyiségét, akkor javulna az íz.
+            Egy többrétegű neurális hálózatban azonban nem egyszerű
+            megállapítani, hogy egy korábbi rétegben található súly vagy
+            torzítás mennyiben járult hozzá a végső veszteséghez. Ez olyan,
+            mintha a kukta egy süteményt készítene, például egy epres
+            csokitortát. A kész torta ízéből érződik, hogy valami nem megfelelő,
+            de nem nyilvánvaló, hogy a csokis borításon, a piskótán vagy
+            valamelyik apróbb összetevőn kellene változtatni. Itt jelenik meg a
+            visszaterjesztés szerepe. A visszaterjesztés a láncszabály
+            segítségével a kimeneti rétegtől indulva, rétegről rétegre
+            visszafelé haladva számítja ki, hogy az egyes súlyok és torzítások
+            milyen mértékben befolyásolták a veszteséget. A torta esetében ez
+            ahhoz hasonlítható, mintha a kukta a kész süteményből kiindulva
+            elkezdené <span className="italic">szétszerelni</span> a tortát és
+            úgy vizsgálná a részeit. Először a borítást, az epret és a piskótát
+            vizsgálja, majd tovább bontja a piskótát és a borítást az egyes
+            összetevőkre. Így jut el például ahhoz a következtetéshez, hogy ha a
+            piskótában csökkenti, a csokis borításban pedig növeli a vaj
+            mennyiségét, az az íz javulását eredményezi.
           </li>
         </ul>
         <p className="mt-4">
           Ez a folyamat ismétlődik több százszor, ezerszer vagy milliószor, amíg
           a hálózat "receptje" nem lesz elég kifinomult ahhoz, hogy a kritikus
-          (a veszteségfüggvény) alacsony hibát adjon, azaz a hálózat pontos
-          előrejelzéseket tegyen.
+          (a veszteségfüggvény) alacsony veszteséget adjon.
         </p>
         <p className="mt-2 note">
           A deriválás miatt differenciálható aktivációs és veszteségfüggvények

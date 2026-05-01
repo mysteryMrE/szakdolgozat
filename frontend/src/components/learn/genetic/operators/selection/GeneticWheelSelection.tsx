@@ -42,7 +42,7 @@ const GeneticWheelSelection = ({
           populáció egyedei a fitnesz értékük arányában kapnak körszeleteket egy
           keréken. Minél nagyobb egy egyed fitnesz értéke, annál nagyobb
           szeletet kap, így nagyobb eséllyel kerül kiválasztásra a következő
-          generációba / annak generálására. <br />
+          generációba vagy annak generálásához. <br />
           <span className="text-sm text-gray-500">
             A kerékre írt számok a fenti neuronok sorszámai, a szeletek mérete
             pedig a fitnesz értékükkel arányos.

@@ -148,11 +148,11 @@ const MinimaxContent = () => {
       <div className="content-box">
         <h2>Mi az a Minimax?</h2>
         <p>
-          A minimax algoritmus egy döntéshozatali stratégia, amelyet olyan
+          A Minimax algoritmus egy döntéshozatali stratégia, amelyet olyan
           kétszemélyes, zéróösszegű játékokban használnak, ahol a játékosok
           felváltva lépnek. Az algoritmus feltételezi, hogy mindkét játékos
           optimálisan játszik - azaz mindig a legjobb lépéseket teszik meg a
-          győzelem és a vereség elkerülése érdekében.
+          győzelem megszerzése és a vereség elkerülése érdekében.
         </p>
         <p className="mt-4">
           A Maximizer (Max) megpróbálja elérni a lehető legmagasabb pontszámot.
@@ -169,7 +169,7 @@ const MinimaxContent = () => {
       <div className="content-box mt-4 text-left">
         <h2 className="text-center">Hogy is működik?</h2>
         <p>
-          A minimax algoritmus rekurzió segítségével valósítható meg. Minden
+          A Minimax algoritmus rekurzió segítségével valósítható meg. Minden
           játékos figyelembe veszi az összes lehetséges lépést, és az algoritmus
           kiértékeli a játékfát, hogy meghatározza a legjobb lépést. Az
           algoritmus fő lépései a következők:
@@ -210,7 +210,7 @@ const MinimaxContent = () => {
       </div>
       <div className="content-box mt-8 flex flex-col gap-4">
         <p>
-          Itt kipróbálhatod a minimax algoritmust élesben! A kiemelt mező a
+          Itt kipróbálhatod a Minimax algoritmust élesben! A kiemelt mező a
           soron következő játékos legjobb lépését mutatja. <br />
           Ha mindig a legjobb lépést választod, akkor a játék kimenetele már az
           elején tudható. Figyeld meg, hogyan tudod egyes lépésekkel
@@ -275,7 +275,7 @@ const MinimaxContent = () => {
       <div className="content-box mt-10">
         <h2>Minimax Fa</h2>
         <p className="mt-2">
-          Itt a fenti táblához tartozó rekurzívan felépített minimax fa látható,
+          Itt a fenti táblához tartozó rekurzívan felépített Minimax fa látható,
           amelyet az algoritmus a döntés meghozatalához használ. Amennyiben az
           állás játékosa X, a "gyerek" állások közül a legmagasabb pontszámot
           választja, ha O, akkor a legalacsonyabbat. A Lépés mező mutatja, hogy

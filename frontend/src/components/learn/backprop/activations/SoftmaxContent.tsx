@@ -26,7 +26,7 @@ const SoftmaxContent = () => {
         <MathLatex
           style="text-xl"
           content={
-            "\\( Softmax(x_{i}) = \\dfrac{e^{x_{i}}}{\\sum^{K}_{j} e^{x_{j}}} \\)"
+            "\\( Softmax(x)_{i} = \\dfrac{e^{x_{i}}}{\\sum^{K}_{j} e^{x_{j}}} \\)"
           }
           inline={false}
         />

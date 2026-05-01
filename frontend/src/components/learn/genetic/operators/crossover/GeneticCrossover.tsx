@@ -17,7 +17,7 @@ const GeneticCrossover = ({ parent1, parent2 }: GeneticCrossoverProps) => {
       <div className="mt-4 md:mt-10 p-4 rounded border border-slate-700">
         <h4>Egypontos keresztezés</h4>
         <p>
-          Az egypontos keresztezés során egy ponton a szülők génjei
+          Az egypontos keresztezés során a szülők génjei egy tengely mentén
           kicserélődnek.
         </p>
         <div className="text-center">

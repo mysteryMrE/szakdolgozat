@@ -13,8 +13,7 @@ const BackpropActivationFunctions = () => {
         játszanak a neurális hálózatok teljesítményében, mert velük képesek a
         neurális hálók nemlineáris összefüggések felfedezésére. Például
         aktivációs függvény nélküli háló nem tudná közelíteni a négyzet
-        függvényt, méretétől és tanításától függetlenül. Néhány gyakori
-        aktivációs függvény: sigmoid, ReLU, tanh.
+        függvényt, méretétől és tanításától függetlenül.
       </p>
       <SigmoidContent />
       <ReluContent />

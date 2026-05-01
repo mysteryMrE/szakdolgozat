@@ -86,7 +86,7 @@ const GeneticOperatorsWithNeurons = () => {
           képest, másrészt a fitnesz értékek (4-ből hány esetben ad jó választ)
           diszkrét természetűek, ami megnehezíti a folyamatos optimalizálást.
         </span>{" "}
-        <br />A példa neuronok lépcsős aktivációs függvényt használnak.
+        <br />A példaneuronok lépcsős aktivációs függvényt használnak.
       </p>
       <GeneticFitness
         networks={[network1, network2, network3, network4]}

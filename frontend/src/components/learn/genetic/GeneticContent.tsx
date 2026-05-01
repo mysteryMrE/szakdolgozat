@@ -12,16 +12,16 @@ const GeneticContent = () => {
           A genetikus algoritmus (genetic algorithm - GA) az evolúciós
           algoritmusok (EA) egy típusa, amely olyan operátorokat alkalmaz,
           melyeket az evolúció ihletett. Az algoritmus egyedekkel dolgozik,
-          melyek egy adott problémára adott megoldást reprezentálnak. A
-          legjobban teljesítő megoldások "szaporodnak", míg a gyengébben
-          teljesítők "kihalnak".
+          melyek egy adott probléma megoldásait reprezentálják. A legjobban
+          teljesítő megoldások "szaporodnak", míg a gyengébben teljesítők
+          "kihalnak".
         </p>
       </div>
       <div className="content-box mt-4 text-base leading-relaxed">
         <h2>Fogalmak</h2>
         <p>
           Vegyünk egy feladatot, amely egy két jegyű szám kitalálása. Az alábbi
-          táblázat bemutatja a fontosabb fogalmakat a feladaton keresztül.
+          táblázat ezen a feladaton keresztül mutatja be a fontosabb fogalmakat.
         </p>
         <GeneticConceptsTable />
       </div>

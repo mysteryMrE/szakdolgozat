@@ -31,7 +31,7 @@ const BackpropInputToOutput = () => {
             ["x", " bemenet vektor"],
             ["b", " torzítás"],
             ["z", " aktiváció előtti érték"],
-            ["f(z)", " aktivációs függvény"],
+            ["f", " aktivációs függvény"],
             ["a", " aktivációs érték"],
           ]}
         />

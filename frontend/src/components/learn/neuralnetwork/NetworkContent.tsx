@@ -47,18 +47,18 @@ const NetworkContent = () => {
       <h2 className="mt-10">Neuronháló</h2>
       <div className="content-box mt-2">
         <p>
-          A neuronháló neuronok összekapcsolásával jön létre. A hálózat
-          rétegekből (layers) áll, ahol az első réteg a bemeneti réteg (input
-          layer), a középső rétegek a rejtett rétegek (hidden layers), a
+          A neuronháló neuronok strukturált összekapcsolásával jön létre. A
+          hálózat rétegekből (layers) áll, ahol az első réteg a bemeneti réteg
+          (input layer), a köztes rétegek a rejtett rétegek (hidden layers), a
           kimeneti réteg (output layer) pedig az utolsó réteg. A bemeneti réteg
           fogadja a bemeneteket, a további rétegek pedig feldolgozzák azokat, és
           a kimeneti réteg adja meg a hálózat végső kimenetét. Minden "valós"
           (nem bemeneti) réteg az előző réteg kimenetét használja bemenetként,
           az adat rétegenként halad előre, kerül feldolgozásra. <br />
           <span className="note">
-            A példákban mindig teljesen összekötött (fully connected) hálókról
-            lesz szó, ahol minden neuron az előző réteg minden neuronjához
-            kapcsolódik.
+            A példákban mindig teljesen összekötött (fully connected)
+            neuronhálókról lesz szó, ahol minden neuron az előző réteg minden
+            neuronjához kapcsolódik.
           </span>
         </p>
         <p>
@@ -105,13 +105,13 @@ const NetworkContent = () => {
           aktivációs függvény.
         </div>
         <div className="note mt-3">
-          Az ÉS és VAGY kapuk lineárisan elválaszthatóak (1 vonallal, két részre
-          osztja a síkot), 1 neuronból álló hálózat is meg tudná valósítani
-          ezeket. A KIZÁRÓ VAGY kapu nem lineárisan elválasztható (2 vonallal
-          kell a síkot három részre osztani), ezért legalább 3 neuronra van
-          szükség a megvalósításához. A rejtett rétegben van egy VAGY és egy NEM
-          ÉS kapu, a kimeneti réteg neuronja ezeket egy ÉS kapuként kapcsolja
-          össze.
+          Az ÉS és VAGY kapuk lineárisan elválaszthatóak (1 vonal elég a
+          problémasík helyes felosztásához), ezért 1 darab neuron is meg tudná
+          valósítani ezeket. A KIZÁRÓ VAGY kapu nem lineárisan elválasztható (a
+          problémasíkot három részre kell osztani), ezért legalább egy három
+          neuront tartalmazó kétréteges neuronhálóra van szükség a
+          megvalósításához. A rejtett rétegben van egy VAGY és egy NEM ÉS kapu,
+          a kimeneti réteg neuronja ezeket egy ÉS kapuként kapcsolja össze.
         </div>
       </div>
     </>

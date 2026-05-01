@@ -9,8 +9,8 @@ const GeneticInCaseOfNN = () => {
       <h2>Neuronháló esetén</h2>
       <p>
         A feladatokra sokféle megoldás adható, a megoldás lehet például egy
-        neurális hálózat is. A neurális hálót többek között reprezentálhatjuk a
-        súly és torzítás értékeinek sorozatával.
+        neuron vagy egy neurális hálózat is. A neurális hálót többek között
+        reprezentálhatjuk a súly és torzítás értékeinek sorozatával.
       </p>
       <div className="flex flex-col md:flex-row mt-4 items-center justify-center w-full">
         <div className="w-9/10 sm:w-6/10 lg:w-4/10 flex-shrink-0">
@@ -18,9 +18,9 @@ const GeneticInCaseOfNN = () => {
         </div>
 
         <p className="mt-3 md:mt-0 md:p-2 md:pl-10 text-center md:text-left">
-          A képen látható neuronnak megfelelő kromoszóma: <br /> [ 0.5, -0.5,
-          1.0 ], tehát [ súly1, súly2, torzítás ] <br />
-          Egy neurális hálózat kódolását ilyen neuron kromoszómákból tudjuk
+          A képen látható neuron kódolása: <br /> [ 0.5, -0.5, 1.0 ], tehát [
+          súly1, súly2, torzítás ] <br />
+          Egy neurális hálózat kódolását ilyen sorozatokból tudjuk
           összeállítani.
         </p>
       </div>
