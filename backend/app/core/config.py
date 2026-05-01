@@ -60,6 +60,10 @@ class Settings(BaseSettings):
     genetic_loss_penalty: float = -1.0
     genetic_draw_reward: float = 0.5
 
+    backprop_epochs: int = 1000
+    menace_exploration: int = 5000
+    menace_exploitation: int = 100000
+
     db_backend: str = "postgres"
     db_schema: str = "public"
 
@@ -261,6 +265,15 @@ class AppConfig(metaclass=Singleton):
 
     def get_genetic_draw_reward(self) -> float:
         return self._settings.genetic_draw_reward
+
+    def get_backprop_epochs(self) -> int:
+        return self._settings.backprop_epochs
+
+    def get_menace_exploration(self) -> int:
+        return self._settings.menace_exploration
+
+    def get_menace_exploitation(self) -> int:
+        return self._settings.menace_exploitation
 
     def get_db_backend(self) -> str:
         return self._settings.db_backend

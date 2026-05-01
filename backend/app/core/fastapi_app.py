@@ -85,12 +85,17 @@ class FastAPIApp:
             )
 
         if not config.get_disable_training() and db_ok:
+            pop_size = config.get_genetic_pop_total()
+            gen_count = config.get_genetic_generations()
+            exploration = config.get_menace_exploration()
+            exploitation = config.get_menace_exploitation()
+            epochs = config.get_backprop_epochs()
             await DefaultPlayerMaker.create_menace(
-                exploration=50, exploitation=100
-            )  # suggested 5000, 10000
-            await DefaultPlayerMaker.create_backprop_nn(epochs=50)  # suggested 5000
+                exploration=exploration, exploitation=exploitation
+            )  # suggested 5000, 100000
+            await DefaultPlayerMaker.create_backprop_nn(epochs=epochs)  # suggested 5000
             await DefaultPlayerMaker.create_genetic_nn(
-                population_size=30
+                population_size=pop_size, generations=gen_count
             )  # suggested 180, 200
         else:
             logger.info("[STARTUP] Skipping default player training")
