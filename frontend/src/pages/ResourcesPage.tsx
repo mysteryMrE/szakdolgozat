@@ -7,7 +7,7 @@ const resources = [
   {
     title: "MENACE - Wikipédia",
     href: "https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine",
-    note: "A MENACE Wikipédia oldala: története, működése és eredményei.",
+    note: "A MENACE története, működése és eredményei.",
     type: "article",
   },
   {
